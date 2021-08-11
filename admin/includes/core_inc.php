@@ -75,11 +75,11 @@ if (isset($_POST['submit_admin'])) {
                 <tr class="manage-list__item-container">
                      <td><?php echo $i++; ?></td>
                      <td class="manage-list__item-img">
-                        <img src="<?php echo "../landlord/".$row['ft_img']; ?>" alt="<?php echo $row['hos_name']." Image" ?>" class="listing__img" width="400px" height="200px">
+                       <a href="viewhostel.php?hosid=<?php echo$row['ID'] ?>"> <img src="<?php echo "../landlord/".$row['ft_img']; ?>" alt="<?php echo $row['hos_name']." Image" ?>" class="listing__img" width="400px" height="200px"></a>
                     </td>
                                         
                     <td class="manage-list__item-detail">
-                        <h4 class="blog"><a href="#"><?php echo $row['hos_name'] ?></a></h4>
+                        <h4 class="blog"><a href="viewhostel.php?hosid=<?php echo$row['ID'] ?>"><?php echo $row['hos_name'] ?></a></h4>
                         <p class="listing__location"><i class="fa fa-building"></i> <?php echo $row['location'] ?></p>
                         <p class="listing__price"><i class="fa fa-money"></i> KSH: <?php echo $row['price'] ?>/month</p>
                         <p class="listing__price"><i class="fa fa-list"></i> Rules: <?php echo $row['rules'] ?></p>
@@ -134,7 +134,7 @@ function approved_hostel(){
                     <td class="manage-list__action">
 
                         <a href="includes/approve_hostel.php?disapprove=<?php echo$row['ID'] ?>" class="btn btn-danger btn-sm" >Disapprove</a>
-                        <a href="includes/approve_hostel.php?owner=<?php echo$row['ID'] ?>" class="btn btn-success btn-sm" >Check out owner</a>
+                        <a href="includes/approve_hostel.php?owner=<?php echo$row['agent_id'] ?>" class="btn btn-success btn-sm" >Check out owner</a>
             	    </td>
                     
 
