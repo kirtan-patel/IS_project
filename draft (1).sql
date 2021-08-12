@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2021 at 04:42 PM
+-- Generation Time: Aug 12, 2021 at 12:26 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -45,10 +45,10 @@ CREATE TABLE `details` (
 
 INSERT INTO `details` (`ID`, `FirstName`, `LastName`, `Email`, `phone_no`, `Password`, `about_me`, `Type`, `isActive`) VALUES
 (1, 'kirtan', 'patel', 'kirtan09322@gmail.com', '0', '6a01bfa30172639e770a6aacb78a3ed4', '', 'student', 0),
-(2, 'gagandeep', 'patel', 'kp@gmail.com', '0700116183', '6a01bfa30172639e770a6aacb78a3ed4', 'hello am kirtan patel, and am just trying this out', 'landlord', 0),
-(3, 'himanshu', 'parmar', 'hp@gmail.com', '075561718188', '6a01bfa30172639e770a6aacb78a3ed4', 'AM nice', 'landlord', 0),
+(2, 'Kirtan ', 'patel', 'kp@gmail.com', '0700116183', '6a01bfa30172639e770a6aacb78a3ed4', 'hello am kirtan patel, and am just trying this out', 'landlord', 0),
+(3, 'himanshu', 'parmar', 'hp@gmail.com', '075561718188', '6a01bfa30172639e770a6aacb78a3ed4', 'Just started my business and am a man of my word and all i post is legit', 'landlord', 0),
 (4, 'DON', 'OMAR', 'don@gmail.com', '0', '6a01bfa30172639e770a6aacb78a3ed4', '', 'admin', 0),
-(7, 'maxx', 'patel', 'max@gmail.com', '0755995104', '2ffe4e77325d9a7152f7086ea7aa5114', 'Hello my name is maxx patel and i am the owner of 2 hostels', 'landlord', 0),
+(7, 'max', 'patel', 'max@gmail.com', '0755995104', '6a01bfa30172639e770a6aacb78a3ed4', 'Hello my name is maxx patel and i am the owner of 2 hostels', 'student', 0),
 (8, 'sam', 'sam', 'sam@gmail.com', '0788995167', '332532dcfaa1cbf61e2a266bd723612c', 'Hello', 'landlord', 0),
 (9, 'gagandeep', 'gahir', 'gahir@gmail.com', '111111111111', '6627415e807ee33c7302917216e7da68', NULL, 'admin', 0);
 
@@ -80,7 +80,8 @@ CREATE TABLE `hos_details` (
 --
 
 INSERT INTO `hos_details` (`ID`, `agent_id`, `hos_name`, `hos_type`, `price`, `description`, `ft_img`, `location`, `friendly_add`, `services`, `rules`, `uploaded_on`, `isActive`, `agent_active`) VALUES
-(1, 2, 'kirtans', 'Private room', '25000', 'qwerty', 'images/uploads/kirtans.jpeg', 'Butere road, milimani', 'uphill', 'internet, food, water', 'None', '2021-08-09 20:50:46', 0, 0);
+(1, 2, 'kirtans', 'Private room', '25000', 'qwerty', 'images/uploads/kirtans.jpeg', 'Butere road, milimani', 'uphill', 'internet, food, water', 'None', '2021-08-09 20:50:46', 0, 0),
+(2, 3, 'himanshus', 'Shared room', '50000', 'Good place', 'images/uploads/himanshus.jpeg', 'Madaraka', 'next to huse', 'All', 'None', '2021-08-11 12:03:30', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -99,11 +100,11 @@ CREATE TABLE `img_table` (
 --
 
 INSERT INTO `img_table` (`ID`, `hos_id`, `more_img`) VALUES
-(1, 1, 'images/uploads/Hostel_JAVA ques.PNG'),
-(2, 1, 'images/uploads/Hostel_Database Schema.png'),
-(3, 2, 'images/uploads/Amazing _images (1).jfif'),
-(4, 3, 'images/uploads/Amazing _images (1).jfif'),
-(5, 1, 'images/uploads/kirtans_images.jfif');
+(5, 1, 'images/uploads/kirtans_images.jfif'),
+(6, 2, 'images/uploads/himanshus_download (2).jfif'),
+(7, 2, 'images/uploads/himanshus_download (1).jfif'),
+(8, 2, 'images/uploads/himanshus_download.jfif'),
+(9, 2, 'images/uploads/himanshus_images.jfif');
 
 --
 -- Indexes for dumped tables
@@ -141,13 +142,13 @@ ALTER TABLE `details`
 -- AUTO_INCREMENT for table `hos_details`
 --
 ALTER TABLE `hos_details`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `img_table`
 --
 ALTER TABLE `img_table`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

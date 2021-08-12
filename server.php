@@ -54,7 +54,7 @@ if (isset($_POST['reg_user'])) {
   	mysqli_query($con, $query);
   	$_SESSION['username'] = $fname;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location:register.php');
+  	header('location:login.php');
   }
 }
 
@@ -93,7 +93,7 @@ if (isset($_POST['login_user'])) {
             $tp=$row['Type'];
             $uname=$row['FirstName'];
             $_SESSION['success'] = "Hello ".$uname." You are logged to student page as ".$tp;
-            header("location:student_dash.php");
+            header("location:student/dashboard.php");
           }else{
             $_SESSION['id'] = $row['ID'];
             $_SESSION['username'] = $row['FirstName'];
