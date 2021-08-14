@@ -2,13 +2,13 @@
 require '../server.php';
 
 
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['id_admin'])) {
   $_SESSION['msg'] = "You must log in first";
   header('location:../login.php');
 }
 if (isset($_POST['logout'])) {
-  session_destroy();
-  unset($_SESSION['id']);
+  
+  unset($_SESSION['id_admin']);
   header("location:../login.php");
 }
 
@@ -53,7 +53,7 @@ $hosid = $_GET['hosid'];
 
 <body>
   <!-- <?php
-        echo $_SESSION['id'];
+        echo $_SESSION['id_admin'];
         ?> -->
   <section id="container">
     <?php include("includes/header.php"); ?>
@@ -203,14 +203,13 @@ $hosid = $_GET['hosid'];
   <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
   <script src="assets/js/jquery.scrollTo.min.js"></script>
   <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-  <script src="assets/js/jquery.sparkline.js"></script>
+ 
 
 
   <!--common script for all pages-->
   <script src="assets/js/common-scripts.js"></script>
   
-  <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
-  <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+  
 
   <!--script for this page-->
   <script src="assets/js/custome.js"></script>

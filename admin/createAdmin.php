@@ -3,13 +3,13 @@ require '../server.php';
 
   
 
-  if (!isset($_SESSION['id'])) {
+  if (!isset($_SESSION['id_admin'])) {
   	$_SESSION['msg'] = "You must log in first";
   	header('location:../login.php');
   }
   if (isset($_POST['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['id']);
+  	
+  	unset($_SESSION['id_admin']);
   	header("location:../login.php");
   }
 ?>

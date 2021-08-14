@@ -2,13 +2,14 @@
 require '../server.php';
   
 
-  if (!isset($_SESSION['id'])) {
+  if (!isset($_SESSION['id_admin'])) {
   	$_SESSION['msg'] = "You must log in first";
   	header('location:../login.php');
   }
   if (isset($_POST['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['id']);
+    unset($_SESSION['id_admin']);
+  	
+  	
   	header("location:../login.php");
   }
 ?>
@@ -47,7 +48,7 @@ require '../server.php';
 
   <body>
     <!-- <?php
-      echo $_SESSION['id'];
+      echo $_SESSION['id_admin'];
     ?> -->
   <section id="container" >
 <?php include("includes/header.php");?>

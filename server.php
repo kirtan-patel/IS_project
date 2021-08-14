@@ -80,8 +80,8 @@ if (isset($_POST['login_user'])) {
 
           $row= mysqli_fetch_assoc($results);
           if ($row['Type']=='landlord') {
-            $_SESSION['id'] = $row['ID'];
-            $_SESSION['username'] = $row['FirstName'];
+            $_SESSION['id_landlord'] = $row['ID'];
+            $_SESSION['username_landlord'] = $row['FirstName'];
             $tp=$row['Type'];
             $uname=$row['FirstName'];
             $_SESSION['success'] = "Hello ".$uname." You are logged to landlord page as ".$tp;
@@ -95,8 +95,8 @@ if (isset($_POST['login_user'])) {
             $_SESSION['success'] = "Hello ".$uname." You are logged to student page as ".$tp;
             header("location:student/dashboard.php");
           }else{
-            $_SESSION['id'] = $row['ID'];
-            $_SESSION['username'] = $row['FirstName'];
+            $_SESSION['id_admin'] = $row['ID'];
+            $_SESSION['username_admin'] = $row['FirstName'];
             $tp=$row['Type'];
             $uname=$row['FirstName'];
             $_SESSION['success'] = "Hello ".$uname." You are logged to admin page as ".$tp;

@@ -12,8 +12,9 @@ require '../server.php';
   	
   	header("location:../login.php");
   }
-
-  
+  if (isset($_GET['edit_hostel'])) {
+    $edit_id=$_GET['edit_hostel'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -50,20 +51,35 @@ require '../server.php';
   </head>
 
   <body>
+
   <section id="container" >
 <?php include("includes/header.php");?>
 <?php include("includes/sidebar.php");?>
 <?php include("includes/core_inc.php");?>
+
+
+<!-- php code to get data of hostel to be edited -->
+<?php 
+
+
+  $query="SELECT * from `hos_details` where `ID`='$edit_id'";
+  $query_run=mysqli_query($con,$query);
+  $row=mysqli_fetch_assoc($query_run);
+
+?>
+
       <section id="main-content">
+      
           <section class="wrapper">
-                <form action="submit_hostel.php" method="post" enctype="multipart/form-data" id="myform">
+                <form action="update_hostel.php" method="post" enctype="multipart/form-data" id="myform">
                     <div class="col-md-9">
                         <div class="submit-property__block">
-                            <h3 class="submit-property__headline"> <b> Add New Hostel <?php echo $_SESSION['username_landlord'] ?></b></h3>
+                            <h3 class="submit-property__headline"> <b> EDIT HOSTEL <?php echo $row['hos_name'] ?></b></h3>
+                            <input type="hidden" value="<?php echo $edit_id ?>" name="hos_id">
 
                             <div class="submit-property__group">
                                 <label for="property-title" class="submit-property__label">Hostel Name *</label>
-                                <input type="text"  name="title" id="property-title" placeholder="Name of house" required>
+                                <input type="text"  name="title" id="property-title" placeholder="Name of house" value="<?php echo $row['hos_name'] ?>" required>
                             </div><!-- .submit-property__group -->
 
                             <div class="row">
@@ -71,8 +87,8 @@ require '../server.php';
                                     <div class="submit-property__group">
                                         <label for="property-type" class="submit-property__label">Hostel Type *</label>
                                         <!-- <input type="text"  id="property-price" name="hos_type" required> -->
-                                        <select class="ht-field" id="property-type" name="hos_type" required>
-                                            <option disabled="disabled">Choose room Types</option>
+                                        <select class="ht-field" id="property-type" name="hos_type"  required>
+                                        <option><?php echo $row['hos_type']; ?></option>
                                             <option >Private room</option>
                                             <option >Shared room</option>
                                             
@@ -88,7 +104,7 @@ require '../server.php';
                                     <div class="submit-property__group">
                                         <label for="property-price" class="submit-property__label">Property Price *</label>
                                         <span class="submit-property__unit">KSH/Month</span>
-                                        <input type="number"  id="property-price" name="price" placeholder="eg 10000"  required>
+                                        <input type="number"  id="property-price" name="price" placeholder="eg 10000" value="<?php echo $row['price'] ?>" required>
                                         
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
@@ -97,57 +113,25 @@ require '../server.php';
 
                             <div class="submit-property__group">
                                 <label for="submit-property-wysiwyg" class="submit-property__label">Description *</label>
-                                <textarea required cols="30" rows="20" name="description" placeholder="Write a detailed description of the hostel and its surrounding" style="border-color:#1fc341; border-width:1px;"></textarea>
+                                <textarea required cols="30" rows="20" name="description" placeholder="Write a detailed description of the hostel and its surrounding" style="border-color:#1fc341; border-width:1px;" ><?php echo $row['description'] ?></textarea>
                             </div><!-- .submit-property__group -->
                         </div><!-- .submit-property__block -->
 
-                        <div class="submit-property__block">
-                            <h3 class="submit-property__headline">Gallery</h3>
-                            
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="submit-property__group">
-                                        <label for="property-featured-image" class="submit-property__label">Featured Image *</label>
-                                        <div class="submit-property__upload">
-                                            <input type="file" required name="feat_image">
-                                            <div class="submit-property__upload-inner">
-                                                <span class="ion-ios-plus-outline submit-property__icon"></span>
-                                                <span class="submit-property__upload-desc">Drop image here or click to upload</span><br>
-                                                <span class="submit-property__upload-desc">Upload png,jpeg</span>
-                                            </div>
-                                        </div><!-- .submit-proeprty__upload -->
-                                    </div><!-- .submit-property__group -->
-                                </div><!-- .col -->
 
-                                <div class="col-md-7">
-                                    <div class="submit-property__group">
-                                        <label for="property-media" class="submit-property__label">All Images</label>
-                                        <div class="submit-property__upload">
-                                            <input type="file" required name="images[]" multiple>
-                                            <div class="submit-property__upload-inner">
-                                                <span class="ion-ios-plus-outline submit-property__icon"></span>
-                                                <span class="submit-property__upload-desc">Drop all images here or click to upload</span><br>
-                                                <span class="submit-property__upload-desc">Upload png,jpeg</span>
-                                            </div>
-                                        </div><!-- .submit-proeprty__upload -->
-                                    </div><!-- .submit-property__group -->
-                                </div><!-- .col -->
-                            </div><!-- .row -->
-                        </div><!-- .submit-property__block -->
 
                         <div class="submit-property__block">
                             <h3 class="submit-property__headline">Location</h3>
                           <!-- .submit-property__group -->
 
                             <div class="submit-property__group">
-                                <label for="state" class="submit-property__label">Location*</label>
-                                <input type="text" value="" name="location" placeholder="eg kodi road, plot number 5" required>
+                                <label for="state" class="submit-property__label" >Location*</label>
+                                <input type="text"  name="location" placeholder="eg kodi road, plot number 5" value="<?php echo $row['location'] ?>" required>
                                 
                           </div>
 
                         <div class="submit-property__group">
                             <label for="property-address" class="submit-property__label">Friendly Address</label>
-                            <input required type="text"  id="property-address" name="address" placeholder="Opposite..../next to...." required>
+                            <input required type="text"  id="property-address" name="address" placeholder="Opposite..../next to...." value="<?php echo $row['friendly_add'] ?>" required>
                         </div><!-- .submit-property__group -->
                     </div><!-- .submit-property__block -->
 
@@ -155,7 +139,7 @@ require '../server.php';
                         <h3 class="submit-property__headline"> Available Services</h3>
                         <div class="submit-property__features">
                             <div class="submit-property__group">
-                                <textarea cols="10" rows="10"  id="property-map-address" name="services" placeholder="What services do you offer? fulltime food, internet.....etc"></textarea>
+                                <textarea cols="10" rows="10"  id="property-map-address" name="services" placeholder="What services do you offer? fulltime food, internet.....etc"><?php echo $row['services'] ?></textarea>
                             </div><!-- .submit-property__group -->
                         </div><!-- .submit-property__features -->
                     </div><!-- .submit-property__block -->
@@ -167,7 +151,7 @@ require '../server.php';
                                <div class="col-md-5">
                                     <div class="submit-property__group">
                                         <label for="property-map-address" class="submit-property__label">If any?</label>
-                                        <textarea cols="10" rows="10"  id="property-map-address" name="rules" placeholder="Mandatory rules to be followed" required></textarea>
+                                        <textarea cols="10" rows="10"  id="property-map-address" name="rules" placeholder="Mandatory rules to be followed" required><?php echo $row['rules'] ?></textarea>
                                     </div><!-- .submit-property__group -->
                                </div>
                             </div><!-- .submit-property__group -->
@@ -175,7 +159,7 @@ require '../server.php';
                     </div><!-- .submit-property__block --><br/><br/>
                     <div class="submit-property__block">
                     <div class="row">
-                    <input type="submit" value="Upload Hostel" class="submit-property__submit" name="submit_property">
+                    <input type="submit" value="Update Hostel" class="submit-property__submit" name="update_hostel">
                     </div>
                     </div>
                  </div><!-- .col -->

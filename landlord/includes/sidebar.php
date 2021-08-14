@@ -5,7 +5,7 @@
               
   
  
-                  <h3 class="centered" style=" color:#0a0b0e; ">Welcome <br> <?php echo $_SESSION['username'] ?> </h3>
+                  <h3 class="centered" style=" color:#0a0b0e; text-transform: uppercase; ">Welcome <br> <?php echo $_SESSION['username_landlord'] ?> </h3>
                   <li class="mt">
                       <a href="dashboard.php">
                           <i class="fa fa-dashboard"></i>
@@ -47,7 +47,7 @@
                           <span>Account Setting</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="change-password.php">Change Password</a></li>
+                        <a  href="change-password.php">Change Password</a>
                            
                       </ul>
                   </li>

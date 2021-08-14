@@ -86,6 +86,9 @@
   label .label-danger{
     color: red;
   }
+
+  
+
   @media (min-width: 768px) {
     .container {
       width: 750px;
@@ -4285,6 +4288,8 @@
     width: 100%;
     margin-bottom: 20px;
     font-size: 13px;
+    border-radius:4px !important;
+    border-color: #1fc341 !important;
   }
   .listing-search__btn {
     height: 41px;
@@ -5491,6 +5496,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+    margin-top: 5px;
     padding: 20px;
     background-color: #696969;
     border-radius: 3px;
@@ -5692,15 +5698,18 @@
   .my-profile__label {
     display: block;
     margin-bottom: 10px;
+    margin-top: 10px;
     color: #333333;
     font-weight: bold;
     font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    text-shadow: 2px 2px 4px dimgrey;
   }
   .my-profile__field {
     margin-bottom: 25px;
     border: 1px solid #dddddd;
     background-color: #f7f7f7;
     color: #888888;
+    border-color: #1fc341;
   }
   .my-profile__submit {
     display: inline-block;
@@ -5713,6 +5722,8 @@
     font-family: 'Roboto', Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: 500;
+    margin-top: 40px;
+    margin-left: 110px;
   }
   .my-profile__wrapper {
     position: relative;
@@ -5743,14 +5754,21 @@
     position: relative;
     margin-bottom: 25px;
   }
+
+ .submit-property__group > input{
+   border-color: #1fc341 !important; 
+   color: #050606;
+ }
+
   .submit-property__group .dk-selected {
     background-color: #eeeeee !important;
     height: 40px;
   }
   .submit-property__headline {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    margin-top: 10px;
+    border-bottom: 2px solid #9f86d9;
     font-size: 20px;
   }
   .submit-property__field {
@@ -5762,8 +5780,9 @@
   .submit-property__label {
     display: inline-block;
     margin-bottom: 10px;
-    color: #333333;
+    color: #130200;
     font-weight: 500;
+    text-shadow: 2px 2px 4px dimgrey;
   }
   .submit-property__unit {
     position: absolute;
@@ -5805,7 +5824,7 @@
   }
   .submit-property__upload {
     position: relative;
-    border: 2px dashed #dddddd;
+    border: 3px dashed #9f86d9;
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;

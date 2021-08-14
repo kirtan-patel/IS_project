@@ -44,7 +44,7 @@ if (isset($_POST['submit_admin'])) {
         require 'config.php';
         $newpass=$_POST['newpassword'];
         $newpass1=md5($newpass);
-        $newid=$_SESSION['id'];
+        $newid=$_SESSION['id_admin'];
         $q="UPDATE `details` set `Password`='$newpass1' where `ID`='$newid'";
         if (mysqli_query($con,$q)) {
             ?>

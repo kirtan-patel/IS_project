@@ -2,14 +2,15 @@
 require '../server.php';
   
 
-  if (!isset($_SESSION['id'])) {
+  if (!isset($_SESSION['id_landlord'])) {
   	// $_SESSION['msg'] = "You must log in first";
   	header('location:../login.php');
     
   }
   if (isset($_POST['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['id']);
+    unset($_SESSION['id_landlord']);
+  	
+  	
   	header("location:../login.php");
   }
 ?>
@@ -49,7 +50,7 @@ require '../server.php';
 
   <body>
     <!-- <?php 
-       echo $_SESSION['id'];
+       echo $_SESSION['id_landlord'];
     ?> -->
   <section id="container" >
 <?php include("includes/header.php");?>
@@ -59,7 +60,7 @@ require '../server.php';
           <section class="wrapper">
             <?php
                 require '../config.php';
-                $user_ID=$_SESSION['id'];
+                $user_ID=$_SESSION['id_landlord'];
                 $qu="SELECT * FROM `details` WHERE `ID`='$user_ID'";
                 $run=mysqli_query($con,$qu);
                 $row=mysqli_fetch_assoc($run);

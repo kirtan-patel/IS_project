@@ -8,8 +8,8 @@
                 
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <form action="dashboard.php" method="post">
-                    <li><input type="submit" value="Logout" name="logout" class="logout">
+                    <form action="dashboard.php" method="post" >
+                    <li><input type="submit" value="Logout" name="logout" class="logout" >
                     </form>
             	</ul>
             </div>
