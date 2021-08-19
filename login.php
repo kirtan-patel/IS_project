@@ -23,7 +23,7 @@
             <ul class="nav-menu">
                 <li class="nav-item"><a href="index.php" >Home</a></li>
                 <li class="nav-item"><a href="login.php" >Log in</a></li>
-                <li class="nav-item"><a href="signup.php" class="nav-link">Sign up</a></li>
+                <li class="nav-item"><a href="signup.php" >Sign up</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -35,9 +35,10 @@
 
 
         <form action="login.php" method="post">
-            	<?php include('errors.php'); ?>
+            	
             <div class="loginbox">
                 <h1>Log in</h1>
+               <h4 class="error"> <?php include('errors.php'); ?></h4><br>
                 <label for="Username"> Username</label>
                 <input type="text" name="email" placeholder="Username" id="" required><br><br>
                 <label for="Password">Password</label>

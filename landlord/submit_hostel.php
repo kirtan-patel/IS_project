@@ -27,20 +27,13 @@ require '../server.php';
 
     <title>Landlord Dashboard</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">    
-    
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style2.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
-
-    <script src="assets/js/chart-master/Chart.js"></script>
+       <!--external css-->
+       <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+       
+  
+       <!-- Custom styles for this template -->
+       <link href="css/style.css" rel="stylesheet">
+       <link href="css/plugins.css" rel="stylesheet">
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -51,11 +44,89 @@ require '../server.php';
 
   <body>
   <section id="container" >
-<?php include("includes/header.php");?>
-<?php include("includes/sidebar.php");?>
+
 <?php include("includes/core_inc.php");?>
-      <section id="main-content">
-          <section class="wrapper">
+<header class="header header--blue">
+    <div class="container">
+      <div class="header__main">
+        <div class="header__logo">
+          <a href="#">
+            <h1 style="color: whitesmoke;">Landlord Panel</h1>
+            
+            
+          </a>
+        </div><!-- .header__logo -->
+
+        <div class="nav-mobile">
+          <a href="#" class="nav-toggle">
+            <span></span>
+          </a><!-- .nav-toggle -->
+        </div><!-- .nav-mobile -->
+
+        <div class="header__menu header__menu--v1">
+          <ul class="header__nav">
+            <li class="header__nav-item">
+              <a href="index.php" class="header__nav-link">Home</a>
+            </li>
+            
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Hi, <?php echo $_SESSION['username_landlord'];?></a>
+            <ul>
+              <li class="setting"><a href="dashboard.php" class="setting__link"><ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile</a></li>
+              <li class="setting"><a href="my_property.php" class="setting__link"><ion-icon name="home" class="setting__icon"></ion-icon>My Hostel</a></li>
+              <li class="setting"><a href="change-password.php" class="setting__link"><ion-icon name="lock-open" class="setting__icon"></ion-icon>Change Password</a></li>
+              <form action="dashboard.php" method="post">
+              <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
+              </form>
+          </ul>
+          </li>
+          </ul><!-- .header__nav -->
+        </div><!-- .header__menu -->
+
+        
+     </div><!-- .header__main -->
+   </div><!-- .container -->
+ </header><!-- .header -->
+
+ <div class="container">
+    <ul class="ht-breadcrumbs ht-breadcrumbs--y-padding ht-breadcrumbs--b-border">
+      <li class="ht-breadcrumbs__item"><a href="#" class="ht-breadcrumbs__link"><span class="ht-breadcrumbs__title">Home</span></a></li>
+      <li class="ht-breadcrumbs__item"><a href="#" class="ht-breadcrumbs__link"><span class="ht-breadcrumbs__title">Pages</span></a></li>
+      <li class="ht-breadcrumbs__item"><span class="ht-breadcrumbs__page">Add new hostel</span></li>
+    </ul><!-- .ht-breadcrumb -->
+
+    <div class="my-profile__container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2 class="bookmarked-listing__headline">Hello, <strong><?php echo $_SESSION['username_landlord'];?></strong></h2>
+          <div class="settings-block">
+            <span class="settings-block__title">Manage Account</span>
+            <ul class="settings">
+              <li class="setting setting--current"><a href="dashboard.php" class="setting__link"><ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile</a></li>
+            </ul><!-- settings -->
+          </div><!-- .settings-block -->
+
+          <div class="settings-block">
+            <span class="settings-block__title">Manage Listing</span>
+            <ul class="settings">
+              <li class="setting"><a href="my_hostel.php" class="setting__link"><ion-icon name="home" class="setting__icon"></ion-icon>My Hostel</a></li>
+              <li class="setting "><a href="resubmit_hostel.php" class="setting__link"><ion-icon name="refresh-circle" class="setting__icon"></ion-icon>Resubmit Hostel</a></li>
+              <li class="setting "><a href="submit_hostel.php" class="setting__link"><ion-icon name="cloud-upload" class="setting__icon"></ion-icon>Add new Hostel</a></li>
+              <li class="setting"><a href="viewContact.php" class="setting__link"><ion-icon name="eye" class="setting__icon"></ion-icon>View Contacts</a></li>
+    
+            </ul><!-- settings -->
+          </div><!-- .settings-block -->
+
+          <div class="settings-block">
+            <ul class="settings">
+              <li class="setting"><a href="change-password.php" class="setting__link"><ion-icon name="lock-open" class="setting__icon"></ion-icon>Change Password</a></li>
+              <form action="dashboard.php" method="post">
+              <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
+              </form>
+            </ul><!-- settings -->
+          </div><!-- .settings-block -->
+        </div><!-- .col -->
+      
                 <form action="submit_hostel.php" method="post" enctype="multipart/form-data" id="myform">
                     <div class="col-md-9">
                         <div class="submit-property__block">
@@ -63,7 +134,7 @@ require '../server.php';
 
                             <div class="submit-property__group">
                                 <label for="property-title" class="submit-property__label">Hostel Name *</label>
-                                <input type="text"  name="title" id="property-title" placeholder="Name of house" required>
+                                <input type="text"  name="title" id="property-title" class="submit-property__field" placeholder="Name of house" required>
                             </div><!-- .submit-property__group -->
 
                             <div class="row">
@@ -88,7 +159,7 @@ require '../server.php';
                                     <div class="submit-property__group">
                                         <label for="property-price" class="submit-property__label">Property Price *</label>
                                         <span class="submit-property__unit">KSH/Month</span>
-                                        <input type="number"  id="property-price" name="price" placeholder="eg 10000"  required>
+                                        <input type="number"  id="property-price" class="submit-property__field" name="price" placeholder="eg 10000"  required>
                                         
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
@@ -97,7 +168,7 @@ require '../server.php';
 
                             <div class="submit-property__group">
                                 <label for="submit-property-wysiwyg" class="submit-property__label">Description *</label>
-                                <textarea required cols="30" rows="20" name="description" placeholder="Write a detailed description of the hostel and its surrounding" style="border-color:#1fc341; border-width:1px;"></textarea>
+                                <textarea required cols="30" rows="20" name="description" class="submit-property__field" placeholder="Write a detailed description of the hostel and its surrounding" style="border-color:#1fc341; border-width:1px;"></textarea>
                             </div><!-- .submit-property__group -->
                         </div><!-- .submit-property__block -->
 
@@ -111,7 +182,7 @@ require '../server.php';
                                         <div class="submit-property__upload">
                                             <input type="file" required name="feat_image">
                                             <div class="submit-property__upload-inner">
-                                                <span class="ion-ios-plus-outline submit-property__icon"></span>
+                                                <span class="submit-property__icon"><ion-icon name="image" ></ion-icon></span>
                                                 <span class="submit-property__upload-desc">Drop image here or click to upload</span><br>
                                                 <span class="submit-property__upload-desc">Upload png,jpeg</span>
                                             </div>
@@ -125,7 +196,7 @@ require '../server.php';
                                         <div class="submit-property__upload">
                                             <input type="file" required name="images[]" multiple>
                                             <div class="submit-property__upload-inner">
-                                                <span class="ion-ios-plus-outline submit-property__icon"></span>
+                                            <span class="submit-property__icon"><ion-icon name="image" ></ion-icon></span>
                                                 <span class="submit-property__upload-desc">Drop all images here or click to upload</span><br>
                                                 <span class="submit-property__upload-desc">Upload png,jpeg</span>
                                             </div>
@@ -141,13 +212,13 @@ require '../server.php';
 
                             <div class="submit-property__group">
                                 <label for="state" class="submit-property__label">Location*</label>
-                                <input type="text" value="" name="location" placeholder="eg kodi road, plot number 5" required>
+                                <input type="text" value="" name="location" class="submit-property__field" placeholder="eg kodi road, plot number 5" required>
                                 
                           </div>
 
                         <div class="submit-property__group">
                             <label for="property-address" class="submit-property__label">Friendly Address</label>
-                            <input required type="text"  id="property-address" name="address" placeholder="Opposite..../next to...." required>
+                            <input required type="text" class="submit-property__field"  id="property-address" name="address" placeholder="Opposite..../next to...." required>
                         </div><!-- .submit-property__group -->
                     </div><!-- .submit-property__block -->
 
@@ -155,7 +226,7 @@ require '../server.php';
                         <h3 class="submit-property__headline"> Available Services</h3>
                         <div class="submit-property__features">
                             <div class="submit-property__group">
-                                <textarea cols="10" rows="10"  id="property-map-address" name="services" placeholder="What services do you offer? fulltime food, internet.....etc"></textarea>
+                                <textarea cols="10" rows="10" class="submit-property__field"  id="property-map-address" name="services" placeholder="What services do you offer? fulltime food, internet.....etc"></textarea>
                             </div><!-- .submit-property__group -->
                         </div><!-- .submit-property__features -->
                     </div><!-- .submit-property__block -->
@@ -167,7 +238,7 @@ require '../server.php';
                                <div class="col-md-5">
                                     <div class="submit-property__group">
                                         <label for="property-map-address" class="submit-property__label">If any?</label>
-                                        <textarea cols="10" rows="10"  id="property-map-address" name="rules" placeholder="Mandatory rules to be followed" required></textarea>
+                                        <textarea cols="10" rows="10" class="submit-property__field"  id="property-map-address" name="rules" placeholder="Mandatory rules to be followed" required></textarea>
                                     </div><!-- .submit-property__group -->
                                </div>
                             </div><!-- .submit-property__group -->
@@ -180,33 +251,22 @@ require '../server.php';
                     </div>
                  </div><!-- .col -->
                 </form>
-          </section>
+          
           
       </section>
       
     <!-- footer -->
     <?php include "includes/footer.php" ?>
   </section>
+    <!-- icon show script -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/jquery-1.8.3.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="assets/js/jquery.sparkline.js"></script>
-
-
-    <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
-    
-    <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
-
-    <!--script for this page-->
-    <script src="assets/js/sparkline-chart.js"></script>    
-	<script src="assets/js/zabuto_calendar.js"></script>	
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDyCxHyc8z9gMA5IlipXpt0c33Ajzqix4"></script>
+<script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js"></script>
+<script src="js/custom.js"></script>	
   </body>
 </html>
 

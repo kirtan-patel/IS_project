@@ -23,100 +23,124 @@ require '../server.php';
 
     <title>all hostel</title>
     
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
-
-    <link href="assets/css/table-responsive.css" rel="stylesheet">
-
-   
-    <style type="text/css">
-      
-    </style>
+        <!--external css-->
+        <!-- <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" /> -->
+       
+  
+       <!-- Custom styles for this template -->
+       <link href="css/style.css" rel="stylesheet">
+       <link href="css/plugins.css" rel="stylesheet">
 </head>
 <body>
+  <?php include('includes/core_inc.php') ?>
 <section id="container" >
-<?php include("includes/header.php");?>
-<?php include("includes/sidebar.php");?>
+<header class="header header--blue">
+    <div class="container">
+      <div class="header__main">
+        <div class="header__logo">
+          <a href="#">
+            <h1 style="color: whitesmoke;">Landlord Panel</h1>
+            
+            
+          </a>
+        </div><!-- .header__logo -->
+
+        <div class="nav-mobile">
+          <a href="#" class="nav-toggle">
+            <span></span>
+          </a><!-- .nav-toggle -->
+        </div><!-- .nav-mobile -->
+
+        <div class="header__menu header__menu--v1">
+          <ul class="header__nav">
+            <li class="header__nav-item">
+              <a href="index.php" class="header__nav-link">Home</a>
+            </li>
+          
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Hi, <?php echo $_SESSION['username_landlord'];?></a>
+            <ul>
+              <li class="setting"><a href="dashboard.php" class="setting__link"><ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile</a></li>
+              <li class="setting"><a href="my_hostel.php" class="setting__link"><ion-icon name="home" class="setting__icon"></ion-icon>My Hostels</a></li>
+              <li class="setting"><a href="change-password.php" class="setting__link"><ion-icon name="lock-open" class="setting__icon"></ion-icon>Change Password</a></li>
+              <form action="dashboard.php" method="post">
+              <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
+              </form>
+          </ul>
+          </li>
+          </ul><!-- .header__nav -->
+        </div><!-- .header__menu -->
+
+        
+     </div><!-- .header__main -->
+   </div><!-- .container -->
+ </header><!-- .header -->
+
+ <div class="container">
+    <ul class="ht-breadcrumbs ht-breadcrumbs--y-padding ht-breadcrumbs--b-border">
+      <li class="ht-breadcrumbs__item"><a href="#" class="ht-breadcrumbs__link"><span class="ht-breadcrumbs__title">Home</span></a></li>
+      <li class="ht-breadcrumbs__item"><a href="#" class="ht-breadcrumbs__link"><span class="ht-breadcrumbs__title">Pages</span></a></li>
+      <li class="ht-breadcrumbs__item"><span class="ht-breadcrumbs__page">viewContact</span></li>
+    </ul><!-- .ht-breadcrumb -->
+
+    <div class="my-profile__container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2 class="bookmarked-listing__headline">Hello, <strong><?php echo $_SESSION['username_landlord'];?></strong></h2>
+          <div class="settings-block">
+            <span class="settings-block__title">Manage Account</span>
+            <ul class="settings">
+              <li class="setting setting--current"><a href="dashboard.php" class="setting__link"><ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile</a></li>
+            </ul><!-- settings -->
+          </div><!-- .settings-block -->
+
+          <div class="settings-block">
+            <span class="settings-block__title">Manage Listing</span>
+            <ul class="settings">
+              <li class="setting"><a href="my_hostel.php" class="setting__link"><ion-icon name="home" class="setting__icon"></ion-icon>My Hostel</a></li>
+              <li class="setting "><a href="resubmit_hostel.php" class="setting__link"><ion-icon name="refresh-circle" class="setting__icon"></ion-icon>Resubmit Hostel</a></li>
+              <li class="setting "><a href="submit_hostel.php" class="setting__link"><ion-icon name="cloud-upload" class="setting__icon"></ion-icon>Add new Hostel</a></li>
+              <li class="setting"><a href="viewContact.php" class="setting__link"><ion-icon name="eye" class="setting__icon"></ion-icon>View Contacts</a></li>
+    
+            </ul><!-- settings -->
+          </div><!-- .settings-block -->
+
+          <div class="settings-block">
+            <ul class="settings">
+              <li class="setting"><a href="change-password.php" class="setting__link"><ion-icon name="lock-open" class="setting__icon"></ion-icon>Change Password</a></li>
+              <form action="dashboard.php" method="post">
+              <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
+              </form>
+            </ul><!-- settings -->
+          </div><!-- .settings-block -->
+        </div><!-- .col -->
+        <div class="col-md-9">
+                    <ul class="manage-list manage-list--my-property">
+                        <li class="manage-list__header">
+                            <span  class="manage-list__title"><i class="fa fa-calendar-o" aria-hidden="true"></i> Contacts</span>
+                            <span class="manage-list__title"><i class="fa fa-bookmark-o" aria-hidden="true"></i> Name | Contact | Message</span>
+                        </li>  
+                        <div style="max-height: 500px; overflow-y: scroll;"> 
+                          <?php pop_contact(); ?>
+                        </div>
+                         </div>                        
+                    </ul>
+                </div><!-- .col -->
+
  <!-- include datafile -->
-  <section id="main-content">
-    <section class="wrapper">
-      <!-- >all contact -->
-		  	<div class="row mt">
-			  		<div class="col-lg-12">
-                      <div class="content-panel">
-                          <section id="unseen">
-                            <table class="table table-bordered table-striped table-condensed">
-                              <thead>
-                              <tr style="text-align: center">
-                                  <th style="text-align: center">id</th>
-                                  <th style="text-align: center">Name</th>
-                                  <th style="text-align: center">Phone number</th>
-                                  <th style="text-align: center">Email</th>
-                                  <th style="text-align: center">Message</th>
-                                  <th style="text-align: center">Received on</th>
-   
-                              </tr>
-                              </thead>
-                              <tbody>
-                                  <!-- function to populate should be here -->
-                                <div class="manage-list__item">
-                                    <tr class="manage-list__item-container">
-                                        <td>
-                                          1
-                                        </td>
-                                        <td class="manage-list__item-img">
-                                            Kirtan Patel
-                                        </td>
-                                        
-                                        <td class="manage-list__item-detail">
-                                            <a href="tel:+">07XXXXXXXX</a>
-                                        </td>
-
-                                        <td class="manage-list__expire-date">
-                                            <a href="mailto:123@gmail.com">123@gmail.com</a>
-                                        </td>
-
-                                        <td class="manage-list__action">
-                                            <p>message</p>
-            	                        </td>
-
-                                        <td class="manage-list__action">
-                                            <p>july 20, 2021</p>
-            	                        </td>
-
-                                    </tr>
-
-                                </div>
-
-                              </tbody>
-                          </table>
-                          </section>
-                  </div><!-- /content-panel -->
-               </div><!-- /col-lg-4 -->			
-		  	</div><!-- /row -->
-</section><! --/wrapper -->
-</section><!-- /MAIN CONTENT -->
+ 
+</section>
 <?php include("includes/footer.php");?>
-  </section>
 
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script> <!--script for nav and side bar shrink -->
-    <!-- <script src="assets/js/bootstrap.min.js"></script> -->
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDyCxHyc8z9gMA5IlipXpt0c33Ajzqix4"></script>
+<script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js"></script>
+<script src="js/custom.js"></script>
 
-
-    <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
-
-    <!--script for this page-->
+  <!-- icon show script -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     
 
   </body>

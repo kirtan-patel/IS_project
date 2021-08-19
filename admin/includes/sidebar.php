@@ -47,8 +47,8 @@
                           <span>Account Setting</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="change-password.php">Change Password</a></li>
-                           <li><a  href="createAdmin.php">Create Admin</a></li>
+                          <a  href="change-password.php">Change Password</a>
+                           <a  href="createAdmin.php">Create Admin</a>
                       </ul>
                   </li>
               </ul>

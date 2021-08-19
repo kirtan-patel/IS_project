@@ -8,8 +8,8 @@
         $update ="UPDATE `hos_details` set `isActive`= 0 where `ID`='$status'";
         $query=mysqli_query($con,$update);
         if ($query) {
-            echo "<script>alert('Hostel has been approved')
-                   window.history.back() </script>";
+            echo '<script>alert("Hostel has been approved")
+                   window.location.href="../viewUploads.php" </script>';
         }else{
             echo "<script>alert('Unkown error occured')
             window.history.back() </script>";

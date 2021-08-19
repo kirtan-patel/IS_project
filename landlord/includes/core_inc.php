@@ -287,6 +287,50 @@ if (!empty($_FILES["feat_image"]["name"])) {
     
     ?>
 
+    <?php 
+        function pop_contact(){
+            ?>
+            <div class="col-sm-6">
+            <div class="property__form-wrapper">
+                <h4>Name </h4>
+                <div class="property__form-field">Kirtan
+                </div>
+            </div>
+        </div>  
+        <div class="col-sm-6">
+            <div class="property__form-wrapper"> 
+                <h4>Email </h4>
+                <div class="property__form-field">
+                    <a href="mailto:">Kirtan@gmail.com</a> 
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="property__form-wrapper"> 
+                <h4>Phone </h4>
+                <div class="property__form-field">
+                  <a href="tel:+">0788998892</a>  
+                </div>
+            </div>
+        </div>   
+        <div class="col-sm-6">
+            <div class="property__form-wrapper">
+                <h4>Message </h4>
+                <div class="property__form-field">
+                    Nice place i want to stay
+                    <div> 
+                </div>            
+            </div>
+        </div>
+        </div><!-- .property__form-wrapper -->
+
+        Contact
+        <hr style="background-color:red;">
+        <?php
+        }
+    
+    ?>
+
 
 
 
