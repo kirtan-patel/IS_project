@@ -85,11 +85,11 @@ require '../server.php';
             <li class="header__nav-item">
               <a href="#" class="header__nav-link">Hi, <?php echo $_SESSION['username_landlord'];?></a>
             <ul>
-              <li class="setting"><a href="dashboard.php" class="setting__link"><i class="fas fa-cogs"></i>My Profile</a></li>
-              <li class="setting"><a href="my_hostel.php" class="setting__link"><i class="ion-ios-home-outline setting__icon"></i>My Hostel</a></li>
-              <li class="setting"><a href="change-password.php" class="setting__link"><i class="ion-ios-unlocked-outline setting__icon"></i>Change Password</a></li>
+              <li class="setting"><a href="dashboard.php" class="setting__link"><ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile</a></li>
+              <li class="setting"><a href="my_hostel.php" class="setting__link"><ion-icon name="home" class="setting__icon"></ion-icon>My Hostel</a></li>
+              <li class="setting"><a href="change-password.php" class="setting__link"><ion-icon name="lock-open" class="setting__icon"></ion-icon></i>Change Password</a></li>
               <form action="dashboard.php" method="post">
-              <li class="setting"><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
+              <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
               </form>
           </ul>
           </li>
@@ -115,26 +115,26 @@ require '../server.php';
           <div class="settings-block">
             <span class="settings-block__title">Manage Account</span>
             <ul class="settings">
-              <li class="setting setting--current"><a href="dashboard.php" class="setting__link"><i class="ion-ios-person-outline setting__icon"></i>My Profile</a></li>
+              <li class="setting setting--current"><a href="dashboard.php" class="setting__link"><ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile</a></li>
             </ul><!-- settings -->
           </div><!-- .settings-block -->
 
           <div class="settings-block">
             <span class="settings-block__title">Manage Listing</span>
             <ul class="settings">
-              <li class="setting"><a href="my_hostel.php" class="setting__link"><i class="ion-ios-home-outline setting__icon"></i>My Hostel</a></li>
-              <li class="setting "><a href="resubmit_hostel.php" class="setting__link"><i class="ion-ios-home-outline setting__icon"></i>Resubmit Hostel</a></li>
-              <li class="setting "><a href="submit_hostel.php" class="setting__link"><i class="ion-ios-home-outline setting__icon"></i>Add new Hostel</a></li>
-              <li class="setting"><a href="viewContact.php" class="setting__link"><i class="ion-ios-home-outline setting__icon"></i>View Contacts</a></li>
+              <li class="setting"><a href="my_hostel.php" class="setting__link"><ion-icon name="home" class="setting__icon"></ion-icon>My Hostel</a></li>
+              <li class="setting "><a href="resubmit_hostel.php" class="setting__link"><ion-icon name="refresh-circle" class="setting__icon"></ion-icon>Resubmit Hostel</a></li>
+              <li class="setting "><a href="submit_hostel.php" class="setting__link"><ion-icon name="cloud-upload" class="setting__icon"></ion-icon>Add new Hostel</a></li>
+              <li class="setting"><a href="viewContact.php" class="setting__link"><ion-icon name="eye" class="setting__icon"></ion-icon>View Contacts</a></li>
     
             </ul><!-- settings -->
           </div><!-- .settings-block -->
 
           <div class="settings-block">
             <ul class="settings">
-              <li class="setting"><a href="change-password.php" class="setting__link"><i class="ion-ios-unlocked-outline setting__icon"></i>Change Password</a></li>
+              <li class="setting"><a href="change-password.php" class="setting__link"><ion-icon name="lock-open" class="setting__icon"></ion-icon>Change Password</a></li>
               <form action="dashboard.php" method="post">
-              <li class="setting"><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
+              <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
               </form>
             </ul><!-- settings -->
           </div><!-- .settings-block -->
@@ -248,6 +248,9 @@ require '../server.php';
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDyCxHyc8z9gMA5IlipXpt0c33Ajzqix4"></script>
             <script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js"></script>
             <script src="js/custom.js"></script>	
+              <!-- icon show script -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
 
