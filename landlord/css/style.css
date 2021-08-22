@@ -5699,11 +5699,11 @@ div.similar-home:last-of-type {
   margin-bottom: 0;
 }
 .manage-list__item-img {
-  display: none;
+  margin-right: 30px;
 }
 @media only screen and (min-width: 992px) {
   .manage-list__item-img {
-    display: block;
+    
     margin-right: 30px;
   }
 }
@@ -6168,6 +6168,7 @@ html.hidescrollbar body {
 .img_edit{
   filter: brightness(40%);
   transition: 0.3s;
+  border-radius: 10px;
 }
 .img_edit:hover{
   filter: brightness(100%);

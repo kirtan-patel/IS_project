@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2021 at 12:26 PM
+-- Generation Time: Aug 22, 2021 at 10:56 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `draft`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `ID` int(11) NOT NULL,
+  `agent_id` int(11) NOT NULL,
+  `hos_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone_no` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `start_stay` varchar(50) NOT NULL,
+  `uploaded_on` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`ID`, `agent_id`, `hos_id`, `name`, `email`, `phone_no`, `message`, `start_stay`, `uploaded_on`) VALUES
+(1, 2, 1, 'Benneth', 'ben@gmail.com', '2548920033', 'Hello i want to stay here plz asap', '30-september-2021', '2021-08-22 17:00:28'),
+(2, 2, 3, 'janak', 'jdjd@gmail.com', '2547788991123', 'I am intrested to stay here', '30-january-2021', '2021-08-22 17:59:06'),
+(3, 3, 2, 'Manushi patel', 'manushi@gmail.com', '123456789', 'I want to stay here contact asap', '30-september-2022', '2021-08-22 20:48:50');
 
 -- --------------------------------------------------------
 
@@ -45,8 +72,8 @@ CREATE TABLE `details` (
 
 INSERT INTO `details` (`ID`, `FirstName`, `LastName`, `Email`, `phone_no`, `Password`, `about_me`, `Type`, `isActive`) VALUES
 (1, 'kirtan', 'patel', 'kirtan09322@gmail.com', '0', '6a01bfa30172639e770a6aacb78a3ed4', '', 'student', 0),
-(2, 'Kirtan ', 'patel', 'kp@gmail.com', '0700116183', '6a01bfa30172639e770a6aacb78a3ed4', 'hello am kirtan patel, and am just trying this out', 'landlord', 0),
-(3, 'himanshu', 'parmar', 'hp@gmail.com', '075561718188', '6a01bfa30172639e770a6aacb78a3ed4', 'Just started my business and am a man of my word and all i post is legit', 'landlord', 0),
+(2, 'Kirtan ', 'patel', 'kp@gmail.com', '0700116183', '81dc9bdb52d04dc20036dbd8313ed055', 'hello am kirtan patel, and am just trying this out', 'landlord', 0),
+(3, 'himanshu', 'patel', 'hp@gmail.com', '075561718188', '6a01bfa30172639e770a6aacb78a3ed4', 'Just started my business and am a man of my word and all i post is legit', 'landlord', 0),
 (4, 'DON', 'OMAR', 'don@gmail.com', '0', '6a01bfa30172639e770a6aacb78a3ed4', '', 'admin', 0),
 (7, 'max', 'patel', 'max@gmail.com', '0755995104', '6a01bfa30172639e770a6aacb78a3ed4', 'Hello my name is maxx patel and i am the owner of 2 hostels', 'student', 0),
 (8, 'sam', 'sam', 'sam@gmail.com', '0788995167', '332532dcfaa1cbf61e2a266bd723612c', 'Hello', 'landlord', 0),
@@ -80,8 +107,10 @@ CREATE TABLE `hos_details` (
 --
 
 INSERT INTO `hos_details` (`ID`, `agent_id`, `hos_name`, `hos_type`, `price`, `description`, `ft_img`, `location`, `friendly_add`, `services`, `rules`, `uploaded_on`, `isActive`, `agent_active`) VALUES
-(1, 2, 'kirtans', 'Private room', '25000', 'qwerty', 'images/uploads/kirtans.jpeg', 'Butere road, milimani', 'uphill', 'internet, food, water', 'None', '2021-08-09 20:50:46', 0, 0),
-(2, 3, 'himanshus', 'Shared room', '50000', 'Good place', 'images/uploads/himanshus.jpeg', 'Madaraka', 'next to huse', 'All', 'None', '2021-08-11 12:03:30', 0, 0);
+(1, 2, 'DOPE', 'Private room', '25000', 'qwerty', 'images/uploads/kirtans.jpeg', 'Butere road, milimani', 'uphill', 'internet, food, water', 'None', '2021-08-09 20:50:46', 0, 0),
+(2, 3, 'himanshus', 'Shared room', '50000', 'Good place', 'images/uploads/himanshus.jpeg', 'kisauni road nairobi west', 'next to house', 'All', 'None', '2021-08-11 12:03:30', 0, 0),
+(3, 2, 'QWERTYS', 'Shared room', '25000', 'It is very good', 'images/uploads/QWERTYS.png', 'forest road nairobi', 'next to strathmore ', 'Internet and all', 'No pets', '2021-08-18 20:36:39', 0, 0),
+(4, 3, 'My_newone', 'Shared room', '25000', 'Nice place to stay', 'images/uploads/My_newone.jpeg', 'Butere road, milimani', 'next to west suit', 'All', 'No party!', '2021-08-20 21:31:09', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -104,11 +133,24 @@ INSERT INTO `img_table` (`ID`, `hos_id`, `more_img`) VALUES
 (6, 2, 'images/uploads/himanshus_download (2).jfif'),
 (7, 2, 'images/uploads/himanshus_download (1).jfif'),
 (8, 2, 'images/uploads/himanshus_download.jfif'),
-(9, 2, 'images/uploads/himanshus_images.jfif');
+(9, 2, 'images/uploads/himanshus_images.jfif'),
+(10, 3, 'images/uploads/QWERTYS_WhatsApp Image 2021-08-12 at 3.28.46 PM.jpeg'),
+(11, 4, 'images/uploads/My_newone_images (2).jpg'),
+(12, 4, 'images/uploads/My_newone_images (1).jpg'),
+(13, 4, 'images/uploads/My_newone_images.jpg'),
+(14, 4, 'images/uploads/My_newone_download (2).jpg'),
+(15, 4, 'images/uploads/My_newone_download (1).jpg'),
+(16, 4, 'images/uploads/My_newone_download.jpg');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `details`
@@ -133,6 +175,12 @@ ALTER TABLE `img_table`
 --
 
 --
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `details`
 --
 ALTER TABLE `details`
@@ -142,13 +190,13 @@ ALTER TABLE `details`
 -- AUTO_INCREMENT for table `hos_details`
 --
 ALTER TABLE `hos_details`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `img_table`
 --
 ALTER TABLE `img_table`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

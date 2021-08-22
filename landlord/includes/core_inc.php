@@ -289,11 +289,30 @@ if (!empty($_FILES["feat_image"]["name"])) {
 
     <?php 
         function pop_contact(){
-            ?>
-            <div class="col-sm-6">
+            require 'config.php';
+            $query4="SELECT * from `contact` where `agent_id`='" . $_SESSION['id_landlord'] . "'";
+            $query_run4 = mysqli_query($con, $query4);
+            $query_row4 = mysqli_num_rows($query_run4);
+            $i=1;
+
+            if ($query_row4 == 0) {
+                echo "No contacts made yet";
+            }
+            else{
+                while ($row = mysqli_fetch_array($query_run4)) {
+                   $hosid= $row['hos_id'];
+                    $query5="SELECT * from `hos_details` where `ID`='$hosid'";
+                    $query_run5 = mysqli_query($con, $query5);
+                    $fetch= mysqli_fetch_assoc($query_run5);
+                    
+                    
+
+
+                   ?> 
+                    <div class="col-sm-6">
             <div class="property__form-wrapper">
                 <h4>Name </h4>
-                <div class="property__form-field">Kirtan
+                <div class="property__form-field"><?php echo $row['name'] ?>
                 </div>
             </div>
         </div>  
@@ -301,7 +320,7 @@ if (!empty($_FILES["feat_image"]["name"])) {
             <div class="property__form-wrapper"> 
                 <h4>Email </h4>
                 <div class="property__form-field">
-                    <a href="mailto:">Kirtan@gmail.com</a> 
+                    <a href="mailto:<?php echo $row['email'] ?>"><?php echo $row['email'] ?></a> 
                 </div>
             </div>
         </div>
@@ -309,24 +328,38 @@ if (!empty($_FILES["feat_image"]["name"])) {
             <div class="property__form-wrapper"> 
                 <h4>Phone </h4>
                 <div class="property__form-field">
-                  <a href="tel:+">0788998892</a>  
+                  <a href="tel:+<?php echo $row['phone_no'] ?>"><?php echo $row['phone_no'] ?></a>  
                 </div>
+                <div class="property__form-wrapper">
+                <h4>Hostel Name </h4>
+                <div class="property__form-field">
+                  <a href="viewhostel.php?hosid=<?php echo $fetch['ID'] ?>"><?php echo $fetch['hos_name']; ?>  </a>        
+            </div>
+        </div>
             </div>
         </div>   
         <div class="col-sm-6">
             <div class="property__form-wrapper">
                 <h4>Message </h4>
                 <div class="property__form-field">
-                    Nice place i want to stay
-                    <div> 
-                </div>            
+                <?php echo $row['message'] ?>       
             </div>
+            <div class="property__form-wrapper">
+                <h4>Start Staying from </h4>
+                <div class="property__form-field">
+                <?php echo $row['start_stay'] ?>      
+            </div>
+        </div>
         </div>
         </div><!-- .property__form-wrapper -->
 
-        Contact
+        Contact <?php echo $i++ ?>
         <hr style="background-color:red;">
-        <?php
+        <?php      }
+            }
+            
+           
+        
         }
     
     ?>

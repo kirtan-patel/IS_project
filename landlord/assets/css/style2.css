@@ -1200,6 +1200,7 @@
     height: auto;
     max-width: 100%;
     vertical-align: middle;
+    border-radius: 10px;
   }
   .property__feature img:hover{
     filter: drop-shadow(2px 3px 4px black);
