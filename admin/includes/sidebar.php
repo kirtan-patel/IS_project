@@ -51,6 +51,9 @@
                            <a  href="createAdmin.php">Create Admin</a>
                       </ul>
                   </li>
+                  <form action="dashboard.php" method="post" >
+                    <li><input type="submit" value="Logout" name="logout" class="logout" >
+                    </form>
               </ul>
               <!-- sidebar menu end-->
           </div>

@@ -165,14 +165,14 @@ if (!empty($_FILES["feat_image"]["name"])) {
                 <li class="manage-list__item">
                     <div class="manage-list__item-container">
                         <div class="manage-list__item-img">
-                            <a href="">
-                                <img src="<?php echo $row['ft_img'] ?>" alt="<?php echo $row['hos_name'].' image' ?>" width="170px" height="200px">
+                            <a href="viewhostel.php?hosid=<?php echo $row['ID'] ?>">
+                                <img src="<?php echo $row['ft_img'] ?>" alt="<?php echo $row['hos_name'].' image' ?>" width="170px" height="200px" class="img_edit">
                             </a>
                         </div>
                         <div class="manage-list__item-detail">
-                            <h3 class="listing__title"><a href="#"><?php echo $row['hos_name']; ?></a></h3>
-                            <p class="listing_location">Location: <?php echo $row['location'] ?></p>
-                            <p class="listing_price">Price: KSH <?php echo $row['price'] ?></p>
+                            <h3 class="listing__title"><a href="viewhostel.php?hosid=<?php echo $row['ID'] ?>"><?php echo $row['hos_name']; ?></a></h3>
+                            <p class="listing_location"><ion-icon name="location-outline"></ion-icon>Location: <?php echo $row['location'] ?></p>
+                            <p class="listing_price"><ion-icon name="pricetag-outline" ></ion-icon>Price: KSH <?php echo $row['price'] ?></p>
                         </div>
                     </div><!--end for manage-list container -->
                     <div class="manage-list__expire-date"><!-- div for date -->

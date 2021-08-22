@@ -6164,3 +6164,13 @@ html.hidescrollbar body {
 .site-min-height {
   min-height: 900px;
 }
+
+.img_edit{
+  filter: brightness(40%);
+  transition: 0.3s;
+}
+.img_edit:hover{
+  filter: brightness(100%);
+  filter: drop-shadow(3px 8px 9px black);
+  transition: 0.3s;
+}

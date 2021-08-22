@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/55cd7b20c8.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -39,7 +40,7 @@
             <div class="loginbox">
                 <h1>Log in</h1>
                <h4 class="error"> <?php include('errors.php'); ?></h4><br>
-                <label for="Username"> Username</label>
+                <label for="Username" style="color:#130200;">Username</label>
                 <input type="text" name="email" placeholder="Username" id="" required><br><br>
                 <label for="Password">Password</label>
                 <input type="Password" name="password" placeholder="Password" id="" required><br><br>
