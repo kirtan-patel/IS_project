@@ -30,8 +30,12 @@
         height: auto;
         overflow: hidden;
         position: absolute;
-        width: 100%;
+        width:100%;
         z-index: 1001;
+        background: #ADA996;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     }
 
 
@@ -54,9 +58,7 @@
         padding: 0 10px;
         text-align: left;
     }
-    #sidebar > ul > li > a i{
-        /*display: none !important;*/
-    }
+    
 
     #sidebar ul > li > a .arrow, #sidebar > ul > li > a .arrow.open {
         margin-right: 10px;
@@ -74,9 +76,7 @@
     #sidebar > ul > li > ul.sub > li > a {
         background: transparent !important ;
     }
-    #sidebar > ul > li > ul.sub > li > a:hover {
-        
-    }
+    
 
 
     /* sidebar */

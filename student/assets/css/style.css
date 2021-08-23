@@ -12,12 +12,15 @@ Premium: http://www.gridgum.com
 /* BASIC THEME CONFIGURATION */
 body {
     color: #797979;
-	background: #f2f2f2;
+	/* background: #f2f2f2; */
     font-family: 'Ruda', sans-serif;
     padding: 0px !important;
     margin: 0px !important;
     font-size:13px;
-    scroll-behavior: smooth;
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
 }
 
 ul li {
@@ -28,15 +31,7 @@ a, a:hover, a:focus {
     text-decoration: none;
     outline: none;
 }
-::selection {
 
-    background: #68dff0;
-    color: #fff;
-}
-::-moz-selection {
-    background: #68dff0;
-    color: #fff;
-}
 
 #container {
     width: 100%;
@@ -214,7 +209,7 @@ hr {
 	background-color: #68dff0;
 }
 
-ul.top-menu >form> li > .logout {
+ul.top-menu > li > .logout {
 	color: #f2f2f2;
 	font-size: 12px;
 	border-radius: 4px;
@@ -226,6 +221,13 @@ ul.top-menu >form> li > .logout {
 	margin-top: 15px;
 }
 
+input.logout{
+    width: 100% !important;
+    border-radius: 5px;
+    background-color: red;
+    color: whitesmoke;
+}
+
 
 
 /*sidebar navigation*/
@@ -234,7 +236,14 @@ ul.top-menu >form> li > .logout {
     width: 210px;
     height: 100%;
     position: fixed;
-    background: salmon;
+   
+    
+    filter: brightness(90%) drop-shadow(2px 4px 6px black) ;
+}
+#sidebar:hover{
+    filter: brightness(100%) drop-shadow(2px 4px 6px black) ;
+    
+
 }
 
 #sidebar h5 {
@@ -415,8 +424,11 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-    background: salmon;
-    border-bottom: 2px solid white;
+    background: #ADA996;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border-bottom: 2px solid #c9aa5f;
 }
 
 .wrapper {
@@ -439,6 +451,7 @@ a.logo {
 
 a.logo b {
     font-weight: 900;
+    color: chocolate;
 }
 
 a.logo:hover, a.logo:focus {
@@ -452,7 +465,7 @@ a.logo span {
 
 
 /*notification*/
-#top_menu .nav > li, ul.top-menu > form > li {
+#top_menu .nav > li, ul.top-menu > li {
     float: left;
 }
 
@@ -469,24 +482,24 @@ a.logo span {
     padding: 5px;
 }
 
-ul.top-menu> form > li > .logout {
-    color: white;
+ul.top-menu > li > a {
+    color: #666666;
     font-size: 16px;
     border-radius: 4px;
     -webkit-border-radius: 4px;
-    border:1px solid white !important;
+    border:1px solid #666666 !important;
     padding: 2px 6px;
     margin-right: 15px;
 }
 
-ul.top-menu > form > li > .logout:hover, ul.top-menu > form > li > .logout:focus {
+ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     border:1px solid #b6b6b6 !important;
     background-color: transparent !important;
     border-color: #b6b6b6 !important;
     text-decoration: none;
     border-radius: 4px;
     -webkit-border-radius: 4px;
-    color: white !important;
+    color: #a71111 !important;
 }
 
 .notify-row .badge {
@@ -604,7 +617,7 @@ ul.top-menu > form > li > .logout:hover, ul.top-menu > form > li > .logout:focus
     margin-top: 7px;
 }
 
-.top-nav ul.top-menu > form > li .dropdown-menu.logout {
+.top-nav ul.top-menu > li .dropdown-menu.logout {
     width: 268px !important;
 
 }
@@ -629,7 +642,7 @@ ul.top-menu > form > li > .logout:hover, ul.top-menu > form > li > .logout:focus
     border-radius: 0 0 3px 3px;
 }
 
-.dropdown-menu.extended.logout > li:last-child > a, .dropdown-menu.extended.logout > li:last-child > .logout:hover {
+.dropdown-menu.extended.logout > li:last-child > a, .dropdown-menu.extended.logout > li:last-child > a:hover {
     color: #fff;
     border-bottom: none !important;
     text-transform: uppercase;
@@ -665,7 +678,7 @@ ul.top-menu > form > li > .logout:hover, ul.top-menu > form > li > .logout:focus
     display: block;
 }
 
-.top-nav ul.top-menu > form > li > .logout {
+.top-nav ul.top-menu > li > a {
     border: 1px solid #eeeeee;
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -673,11 +686,11 @@ ul.top-menu > form > li > .logout:hover, ul.top-menu > form > li > .logout:focus
     background: none;
     margin-right: 0;
 }
-.top-nav ul.top-menu > form > li {
+.top-nav ul.top-menu > li {
     margin-left: 10px;
 }
 
-.top-nav ul.top-menu > form > li > .logout:hover, .top-nav ul.top-menu > form > li > .logout:focus {
+.top-nav ul.top-menu > li > a:hover, .top-nav ul.top-menu > li > a:focus {
     border:1px solid #F1F2F7;
     background: #F1F2F7;
 
@@ -691,7 +704,7 @@ ul.top-menu > form > li > .logout:hover, ul.top-menu > form > li > .logout:focus
     border-bottom-color: #A4AABA;
     border-top-color: #A4AABA;
 }
-.top-nav ul.top-menu > form > li > .logout:hover .caret {
+.top-nav ul.top-menu > li > a:hover .caret {
     border-bottom-color: #000;
     border-top-color: #000;
 }
@@ -2224,6 +2237,9 @@ label {
     background: #68dff0;
     color: #fff;
     padding: 10px 0;
+    
+    width: 100%;
+    bottom: 0%;
 }
 
 
@@ -2235,13 +2251,10 @@ label {
     height: 20px;
     border-radius: 50%;
     -webkit-border-radius: 50%;
-    cursor: pointer;
-    
 }
 
 .go-top i {
     color: #2A3542;
-
 }
 
 .site-min-height {

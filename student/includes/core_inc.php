@@ -167,7 +167,7 @@ function approved_hostel(){
                     </td>
                                         
                     <td class="manage-list__item-detail">
-                        <h4 class="blog"><a href="#"><?php echo $row['hos_name'] ?></a></h4>
+                         <h4 class="blog"><a href="contact.php?hosid=<?php echo$row['ID'] ?>"><?php echo $row['hos_name'] ?></a></h4>
                         <p class="listing__location"><i class="fa fa-building"></i> <?php echo $row['location'] ?></p>
                         <p class="listing__price"><i class="fa fa-money"></i> KSH: <?php echo $row['price'] ?>/month</p>
                         <p class="listing__price"><i class="fa fa-list"></i> Rules: <?php echo $row['rules'] ?></p>
@@ -179,9 +179,16 @@ function approved_hostel(){
 
                     
                     <td class="manage-list__action">
-                                            <p><?php echo $row['OwnerName'] ?></p>
-                                            <p><?php echo $row['OwnerNumber'] ?></p>
-                                            <a href="contact.php" class="btn btn-primary btn-sm">Contact Hostel Owner</a>
+                         <?php
+                require '../config.php';
+                $user_ID=$_SESSION['id'];
+                $qu="SELECT * FROM `details` WHERE `ID`='$user_ID'";
+                $run=mysqli_query($con,$qu);
+                $row1=mysqli_fetch_assoc($run);
+            ?>
+                                            <p><?php echo $row1['FirstName'] ?></p>
+                                            <p><?php echo $row1['phone_no'] ?></p>
+                                            <a href="contact.php?hosid=<?php echo $row['ID'] ?>" class="btn btn-primary btn-sm">Contact Hostel Owner</a>
                                             
             	    </td>
                     
@@ -193,5 +200,5 @@ function approved_hostel(){
 ?>
 
 
-      
+
 

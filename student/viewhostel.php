@@ -7,7 +7,6 @@ require '../server.php';
   	header('location:../login.php');
   }
   if (isset($_POST['logout'])) {
-  	session_destroy();
   	unset($_SESSION['id']);
   	header("location:../login.php");
   }
@@ -32,12 +31,10 @@ require '../server.php';
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
 
-    <link href="assets/css/table-responsive.css" rel="stylesheet">
+
 
    
-    <style type="text/css">
       
-    </style>
 </head>
 <body>
   
@@ -49,7 +46,7 @@ require '../server.php';
   <section id="main-content">
     <section class="wrapper">
       
-      <h3><i class="fa fa-angle-right"></i>All Approved Hostels</h3>
+       <h3 class="submit-property__headline" style="color:white; font-weight:bold;">&gt;<a href="viewhostel.php">View hostels</a></h3>
 
 		  	<div class="row mt">
 			  		<div class="col-lg-12">

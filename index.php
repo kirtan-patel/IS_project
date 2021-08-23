@@ -20,6 +20,7 @@ body {
     background: url("bimg.jpg");
     background-size:cover;
     background-repeat:no-repeat; 
+    filter: brightness(70%);
   
 }
 .btn1{
@@ -116,6 +117,18 @@ body{
      <a href="login.php" class="click"><button class="btn1"> click here</button></a>
   </div>
 </div>
+<section id="home-info" class="bg-dark">
+        <div class="info-img"></div>
+        <div class="info-content">
+          <h2 class="h2-tag"><span class="text-primary">Feedback</span> form</h2>
+          <p>
+          We care about our customers and look forward to make you happy.
+              So if you have any issue contact us using the form below and we will
+              try our best to solve them.
+          </p>
+          <a href="contact.php" class="read" style="color: whitesmoke;">Feedback Form</a>
+        </div>
+      </section>
     
        
    

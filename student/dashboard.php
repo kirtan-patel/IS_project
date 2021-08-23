@@ -8,7 +8,7 @@ require '../server.php';
     
   }
   if (isset($_POST['logout'])) {
-  	session_destroy();
+  
   	unset($_SESSION['id']);
   	header("location:../login.php");
   }
@@ -60,8 +60,8 @@ require '../server.php';
                 $qu="SELECT * FROM `details` WHERE `ID`='$user_ID'";
                 $run=mysqli_query($con,$qu);
                 $row=mysqli_fetch_assoc($run);
-            ?>
-            <h3 class="submit-property__headline">&gt;Student Dashboard</h3>
+            ?><br>
+            <h3 class="submit-property__headline" style="color:white;">&gt;<a href="dashboard.php">Student Dashboard</a></h3>
   <div class="row">
     <form method="POST" action="dashboard.php" enctype="multipart/form-data">
          <div class="col-md-4">

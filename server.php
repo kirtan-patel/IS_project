@@ -121,3 +121,41 @@ if (isset($_POST['login_user'])) {
   }
   
   ?>
+
+  <?php 
+  if (isset($_POST['submit_form'])) {
+      sub_form();
+  }
+  
+  function sub_form(){
+    require 'config.php';
+    $name=$_POST['name_feed'];
+    $mail=$_POST['email_feed'];
+    $mess=$_POST['message_feed'];
+
+    $user_check = "SELECT * FROM `details` WHERE `Email`='$mail' LIMIT 1";
+    $results = mysqli_query($con, $user_check);
+    $user_check = mysqli_fetch_assoc($results);
+
+    if ($user_check['Email']===$mail) {
+      $query_upload="INSERT INTO `feedback`(`name`, `email`, `message`) VALUES ('$name','$mail','$mess')";
+      mysqli_query($con,$query_upload);
+
+      ?>
+      <script>
+        alert("Feedback send, thank you!");
+      </script>
+      
+   <?php }else{
+     ?>
+      <script>
+        alert("Looks like you are not registred, so you can not send a feedback");
+      </script>
+
+   <?php
+   }
+
+
+  }
+  ?>
+  
