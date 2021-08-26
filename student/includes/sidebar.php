@@ -34,7 +34,7 @@
                       </ul>
                   </li>
               </ul>
-                <form action="dashboard.php" method="post" >
+                    <form action="dashboard.php" method="post" >
                     <li><input type="submit" value="Logout" name="logout" class="logout" >
                     </form>
                         

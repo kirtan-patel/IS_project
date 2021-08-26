@@ -47,13 +47,10 @@
                           <span>Account Setting</span>
                       </a>
                       <ul class="sub">
-                          <a  href="change-password.php">Change Password</a>
-                           <a  href="createAdmin.php">Create Admin</a>
+                          <li><a  href="change-password.php">Change Password</a></li>
+                           <li><a  href="createAdmin.php">Create Admin</a></li>
                       </ul>
                   </li>
-                  <form action="dashboard.php" method="post" >
-                    <li><input type="submit" value="Logout" name="logout" class="logout" >
-                    </form>
               </ul>
               <!-- sidebar menu end-->
           </div>

@@ -41,24 +41,57 @@ $hosid = $_GET['hosid'];
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/style2.css" rel="stylesheet">
   <link href="assets/css/style-responsive.css" rel="stylesheet">
-
-  <script src="assets/js/chart-master/Chart.js"></script>
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
+  <header class="header header--blue" style="background-color: rgb(0, 23, 71);">
+    <div class="container">
+      <div class="header__main">
+        <div class="header__logo">
+          <a href="#">
+            <h1 style="color: whitesmoke;">Admin Panel</h1>
+            
+            
+          </a>
+        </div><!-- .header__logo -->
+
+        <div class="nav-mobile">
+          <a href="#" class="nav-toggle">
+            <span></span>
+          </a><!-- .nav-toggle -->
+        </div><!-- .nav-mobile -->
+
+        <div class="header__menu header__menu--v1">
+          <ul class="header__nav">
+            <li class="header__nav-item">
+              <a href="dashboard.php" class="header__nav-link">Home</a>
+            </li>
+            
+  
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Hi, <?php echo $_SESSION['username_admin'];?></a>
+            <ul>
+              <li class="setting"><a href="dashboard.php" class="setting__link"><ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile</a></li>
+              <li class="setting"><a href="my_hostel.php" class="setting__link"><ion-icon name="home" class="setting__icon"></ion-icon>My Hostels</a></li>
+              <li class="setting"><a href="change-password.php" class="setting__link"><ion-icon name="lock-open" class="setting__icon"></ion-icon>Change Password</a></li>
+              <form action="dashboard.php" method="post">
+              <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
+              </form>
+          </ul>
+          </li>
+          </ul><!-- .header__nav -->
+        </div><!-- .header__menu -->
+
+        
+     </div><!-- .header__main -->
+   </div><!-- .container -->
+ </header><!-- .header -->
   <!-- <?php
         echo $_SESSION['id_admin'];
         ?> -->
   <section id="container">
-    <?php include("includes/header.php"); ?>
-    <?php include("includes/sidebar.php"); ?>
     <?php include("includes/config.php"); ?>
+
     <section id="main-content">
       <section class="wrapper">
 
@@ -100,7 +133,7 @@ $hosid = $_GET['hosid'];
                 </div><!-- .container -->
               </div><!-- .property__header -->
 
-              <div class="property__feature"> <!-- display image part -->
+              <div class="property__feature" > <!-- display image part -->
 
                 <?php 
                   $query2="SELECT * from `img_table` where `hos_id`='$hosid'";
@@ -109,7 +142,7 @@ $hosid = $_GET['hosid'];
                   while ($res=mysqli_fetch_array($query2_run)) {
                     ?>
                     
-                      <img src="<?php echo "../landlord/" .$res['more_img'] ?>" alt="<?php echo $res['hos_name']."".$res['more_img'] ?>" style="margin: 10px;">
+                      <img src="<?php echo "../landlord/" .$res['more_img'] ?>" alt="<?php echo $res['hos_name']."".$res['more_img'] ?>" style="margin: 10px;" class="img_all">
                     
 
                 <?php  }
@@ -135,14 +168,15 @@ $hosid = $_GET['hosid'];
               </div><!-- .property__feature -->
 
               <div class="property__feature">
+                
                 <h3 class="property__feature-businessName property__feature-businessName--b-spacing">Property Details</h3>
                   <ul class="property__details-list">
                     <li class="property__details-item"><span class="property__details-item--cat">Location:</span><?php echo $ress['location']; ?></li>
                     <li class="property__details-item"><span class="property__details-item--cat">friendly address:</span> <?php echo $ress['friendly_add']; ?><li>
                     <li class="property__details-item"><span class="property__details-item--cat">Services: </span><?php  echo $ress['services']; ?>
-                                            
+                   
                    </ul><!-- .property__details-list -->
-                   <iframe width="100%" height="250" src="https://maps.google.com/maps?q=<?php echo $address; ?>&output=embed"></iframe>
+                   <iframe width="100%" height="250" src="https://maps.google.com/maps?q=<?php echo $address; ?>&output=embed"></iframe>     
                 </div><!-- .property__feature -->
 
                 <div class="property__feature">
@@ -174,7 +208,7 @@ $hosid = $_GET['hosid'];
                     <li class="property__details-item"><span class="property__details-item--cat">Email: </span><a href="mailto:<?php echo $result['Email']; ?>"><?php  echo $result['Email']; ?></a>
                     <li class="property__details-item"><span class="property__details-item--cat">Phone number: </span><a href="tel:<?php echo $result['phone_no']; ?>"><?php  echo $result['phone_no']; ?></a>
                                             
-                   </ul><!-- .property__details-list -->
+                     </ul><!-- .property__details-list -->
                    <a href="includes/approve_hostel.php?status=<?php echo$row['ID'] ?>" class="btn btn-success btn-sm" >Approve hostel</a>
 
                 </div><!-- .property__feature -->
@@ -199,24 +233,14 @@ $hosid = $_GET['hosid'];
     <?php include "includes/footer.php" ?>
   </section>
 
-  <!-- js placed at the end of the document so the pages load faster -->
-  <script src="assets/js/jquery.js"></script>
-  <script src="assets/js/jquery-1.8.3.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-  <script src="assets/js/jquery.scrollTo.min.js"></script>
-  <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
- 
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-
-  <!--common script for all pages-->
-  <script src="assets/js/common-scripts.js"></script>
-  
-  
-
-  <!--script for this page-->
-  <script src="assets/js/custome.js"></script>
-  <script src="assets/js/plugins.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDyCxHyc8z9gMA5IlipXpt0c33Ajzqix4"></script>
+<script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js"></script>
+<script src="js/custom.js"></script>
 </body>
 
 </html>

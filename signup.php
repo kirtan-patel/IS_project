@@ -337,7 +337,7 @@ p{
             outline: none;
             border: none;
             border-bottom: #18e018 dotted #fff;
-            color: #fff;
+            color: black;
             border-radius: 5px;
             margin-top: 10px;
             font-weight: bold;
@@ -401,7 +401,7 @@ p{
             <input type="Password" placeholder="Confirm password" name="pass2" value=""><br><br>
             <label for="User type">User type: </label>
             <select name="type" id="sel">
-                <option value="Student">Student</option>
+                <option value="student">Student</option>
                 <option value="landlord">Landlord</option>
             </select><br><br>
 

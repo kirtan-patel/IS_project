@@ -23,77 +23,133 @@ require '../server.php';
 
     <title>All unapproved hostels</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
+     <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway:400,700,800|Roboto:400,500,700" rel="stylesheet"> 
 
-    <link href="assets/css/table-responsive.css" rel="stylesheet">
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/plugins.css">
+    <link rel="stylesheet" href="css/style.css">
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    
+
 </head>
 <body>
+  <header class="header header--blue">
+    <div class="container">
+      <div class="header__main">
+        <div class="header__logo">
+          <a href="#">
+            <h1 style="color: whitesmoke;">Admin Panel</h1>
+            
+            
+          </a>
+        </div><!-- .header__logo -->
+
+        <div class="nav-mobile">
+          <a href="#" class="nav-toggle">
+            <span></span>
+          </a><!-- .nav-toggle -->
+        </div><!-- .nav-mobile -->
+
+        <div class="header__menu header__menu--v1">
+          <ul class="header__nav">
+            <li class="header__nav-item">
+              <a href="index.php" class="header__nav-link">Home</a>
+            </li>
+            
+  
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Hi, <?php echo $_SESSION['username_admin'];?></a>
+            <ul>
+              <li class="setting"><a href="dashboard.php" class="setting__link"><ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile</a></li>
+              <li class="setting"><a href="change-password.php" class="setting__link"><ion-icon name="lock-open" class="setting__icon"></ion-icon>Change Password</a></li>
+              <form action="dashboard.php" method="post">
+              <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
+              </form>
+          </ul>
+          </li>
+          </ul><!-- .header__nav -->
+        </div><!-- .header__menu -->
+
+        
+     </div><!-- .header__main -->
+   </div><!-- .container -->
+ </header><!-- .header -->
+     <!-- <?php 
+       echo $_SESSION['id_admin'];
+    ?> -->
 <section id="container" >
-<?php include("includes/header.php");?>
-<?php include("includes/sidebar.php");?>
+
 <?php include("includes/core_inc.php");?>
+<div class="container">
+    <ul class="ht-breadcrumbs ht-breadcrumbs--y-padding ht-breadcrumbs--b-border">
+      <li class="ht-breadcrumbs__item"><a href="#" class="ht-breadcrumbs__link"><span class="ht-breadcrumbs__title">Home</span></a></li>
+      <li class="ht-breadcrumbs__item"><a href="#" class="ht-breadcrumbs__link"><span class="ht-breadcrumbs__title">Pages</span></a></li>
+      <li class="ht-breadcrumbs__item"><span class="ht-breadcrumbs__page">Unapproved hostel</span></li>
+    </ul><!-- .ht-breadcrumb -->
 
-  <section id="main-content">
-    <section class="wrapper">
-      <h3><i class="fa fa-angle-right"></i>All UnApproved Hostel</h3>
-		  	<div class="row mt">
-			  		<div class="col-lg-12">
-                      <div class="content-panel">
-                          <section id="unseen">
-                            <table class="table table-bordered table-striped table-condensed">
-                              <thead>
-                              <tr style="text-align: center">
-                                  <th style="text-align: center">id</th>
-                                  <th style="text-align: center">Image</th>
-                                  <th style="text-align: center">Property Detail</th>
-                                  <th style="text-align: center">Date Uploaded</th>
-                                  <th style="text-align: center">Action</th>
+    <div class="my-profile__container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2 class="bookmarked-listing__headline">Hello, <strong><?php echo $_SESSION['username_admin'];?></strong></h2>
+          <div class="settings-block">
+            <span class="settings-block__title">Manage Account</span>
+            <ul class="settings">
+              <li class="setting setting--current"><a href="dashboard.php" class="setting__link"><ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile</a></li>
+            </ul><!-- settings -->
+          </div><!-- .settings-block -->
 
-                                  
-                              </tr>
-                              </thead>
-                              <tbody>
-                                <div class="manage-list__item">
-                                    <!-- function to populate unapproved hostels -->
-                                    <?php echo unapproved_hostel(); ?>
+          <div class="settings-block">
+            <span class="settings-block__title">Manage Listing</span>
+            <ul class="settings">
+              <li class="setting"><a href="registeredAgent.php" class="setting__link"><ion-icon name="home" class="setting__icon"></ion-icon>View Registered Agent</a></li>
+              <li class="setting "><a href="viewUploads.php" class="setting__link"><ion-icon name="eye" class="setting__icon"></ion-icon>View Uploaded Hostels</a></li>
+              <li class="setting "><a href="Unapprove.php" class="setting__link"><ion-icon name="close-circle" class="setting__icon"></ion-icon>View Unapproved Hostels</a></li>
+              <li class="setting "><a href="#" class="setting__link"><ion-icon name="mail-unread" class="setting__icon"></ion-icon>Users Feedback</a></li>
+    
+            </ul><!-- settings -->
+          </div><!-- .settings-block -->
 
-                                </div>
-                              </tbody>
-                          </table>
-                          </section>
-                  </div><!-- /content-panel -->
-               </div><!-- /col-lg-4 -->			
-		  	</div><!-- /row -->
-</section><! --/wrapper -->
-</section><!-- /MAIN CONTENT -->
-<?php include("includes/footer.php");?>
+          <div class="settings-block">
+            <ul class="settings">
+              <li class="setting"><a href="change-password.php" class="setting__link"><ion-icon name="lock-open" class="setting__icon"></ion-icon>Change Password</a></li>
+               <li class="setting"><a href="createAdmin.php" class="setting__link"><ion-icon name="create" class="setting__icon"></ion-icon>Create Admin</a></li>
+              <form action="dashboard.php" method="post">
+              <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
+              </form>
+            </ul><!-- settings -->
+          </div><!-- .settings-block -->
+        </div><!-- .col -->
+
+        <div class="col-md-9" >
+                    
+                    <ul class="manage-list manage-list--my-property">
+                     <li class="manage-list__header">
+                            <span class="manage-list__title" style="color:black;"><i class="fa fa-bookmark-o" aria-hidden="true"></i>Hostels Details</span>
+                         <span class="manage-list__title" style="color:black;"><i class="fa fa-calendar-o" aria-hidden="true"></i> Date</span>
+                         
+                        </li>
+                        <div style="max-height: 500px; overflow-y: scroll;">
+                              <?php echo unapproved_hostel(); ?>
+                        </div>     
+                    </ul>
+               
+                </div><!-- .col -->
+
+
+
   </section>
+  <?php include("includes/footer.php");?>
 
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDyCxHyc8z9gMA5IlipXpt0c33Ajzqix4"></script>
+<script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js"></script>
+<script src="js/custom.js"></script>
 
-
-    <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
-
-    <!--script for this page-->
+  <!-- icon show script -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     
 
   </body>

@@ -12,15 +12,11 @@ Premium: http://www.gridgum.com
 /* BASIC THEME CONFIGURATION */
 body {
     color: #797979;
-	/* background: #f2f2f2; */
+	background:#CECCCC;
     font-family: 'Ruda', sans-serif;
     padding: 0px !important;
     margin: 0px !important;
     font-size:13px;
-    background: #E0EAFC;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
 }
 
 ul li {
@@ -31,7 +27,15 @@ a, a:hover, a:focus {
     text-decoration: none;
     outline: none;
 }
+::selection {
 
+    background: #68dff0;
+    color: #fff;
+}
+::-moz-selection {
+    background: #68dff0;
+    color: #fff;
+}
 
 #container {
     width: 100%;
@@ -209,8 +213,8 @@ hr {
 	background-color: #68dff0;
 }
 
-ul.top-menu > li > .logout {
-	color: #f2f2f2;
+/* ul.top-menu > li > .logout {
+	color: black;
 	font-size: 12px;
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -218,15 +222,16 @@ ul.top-menu > li > .logout {
 	padding: 5px 15px;
 	margin-right: 15px;
 	background: #000066;
-	margin-top: 15px;
+	margin-top: 20px !important;
+} */
+
+.top-menu{
+    color: black;
+    margin-top: 4px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
 }
 
-input.logout{
-    width: 100% !important;
-    border-radius: 5px;
-    background-color: red;
-    color: whitesmoke;
-}
 
 
 
@@ -236,14 +241,7 @@ input.logout{
     width: 210px;
     height: 100%;
     position: fixed;
-   
-    
-    filter: brightness(90%) drop-shadow(2px 4px 6px black) ;
-}
-#sidebar:hover{
-    filter: brightness(100%) drop-shadow(2px 4px 6px black) ;
-    
-
+    background: #b45a5a;
 }
 
 #sidebar h5 {
@@ -372,11 +370,15 @@ ul.sidebar-menu li a{
     -o-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    border: 1px solid aliceblue;
+    border-radius: 40px;
+    background-color: aliceblue;
+    margin-bottom: 10px;
 }
 
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #000066;
-    color: #fff;
+    background: #68dff0;
+    color: black;
     display: block;
 
     -webkit-transition: all 0.3s ease;
@@ -424,10 +426,7 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-    background: #ADA996;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #b45a5a;
     border-bottom: 2px solid #c9aa5f;
 }
 
@@ -451,7 +450,6 @@ a.logo {
 
 a.logo b {
     font-weight: 900;
-    color: chocolate;
 }
 
 a.logo:hover, a.logo:focus {
@@ -755,6 +753,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     float: left;
     padding-right: 15px;
     margin-top: 20px;
+    color: whitesmoke;
 }
 
 .sidebar-toggle-box .fa-bars {
@@ -890,8 +889,6 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 	padding-top: 20px;
 }
 
-.mleft {
-}
 
 .border-head h3 {
     margin-top: 20px;
@@ -982,189 +979,6 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 
-/*Donut Chart Main Page Conf*/
-.donut-main {
-	display: block;
-	text-align: center;
-}
-
-.donut-main h4 {
-	font-weight: 700;
-	font-size: 16px;
-}
-
-/* *************************************************************************************
-PANELS CONFIGURATIONS
-*************************************************************************************** */
-
-/*Panel Size*/
-
-.pn {
-	height: 250px;
-	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-.pn:hover {
-	box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
-	
-}
-
-/*Grey Panel*/
-
-.grey-panel {
-	text-align: center;
-	background: #dfdfe1;
-}
-.grey-panel .grey-header {
-	background: #ccd1d9;
-	padding: 3px;
-	margin-bottom: 15px;
-}
-.grey-panel h5 {
-	font-weight: 200;
-	margin-top: 10px;
-}
-.grey-panel p {
-	margin-left: 5px;
-}
-/* Specific Conf for Donut Charts*/
-.donut-chart p {
-	margin-top: 5px;
-	font-weight: 700;
-	margin-left: 15px;
-}
-.donut-chart h2 {
-	font-weight: 900;
-	color: #FF6B6B;
-	font-size: 38px;
-}
-
-/* Dark Blue*/
-
-.darkblue-panel {
-	text-align: center;
-	background: #444c57;
-}
-.darkblue-panel .darkblue-header {
-	background: transparent;
-	padding: 3px;
-	margin-bottom: 15px;
-}
-.darkblue-panel h1 {
-	color: #f2f2f2;
-}
-.darkblue-panel h5 {
-	font-weight: 200;
-	margin-top: 10px;
-	color: white;
-}
-.darkblue-panel footer {
-	color: white;
-}
-.darkblue-panel footer h5 {
-	margin-left:10px; 
-	margin-right: 10px;
-	font-weight: 700;
-}
-
-/*Green Panel*/
-.green-panel {
-	text-align: center;
-	background: #68dff0;
-}
-.green-panel .green-header {
-	background: #43b1a9;
-	padding: 3px;
-	margin-bottom: 15px;
-}
-.green-panel h5 {
-	color: white;
-	font-weight: 200;
-	margin-top: 10px;
-}
-.green-panel h3 {
-	color: white;
-	font-weight: 100;
-}
-.green-panel p {
-	color: white;
-}
-
-/*White Panel */
-.white-panel {
-	text-align: center;
-	background: #ffffff;
-	color: #ccd1d9;
-}
-
-.white-panel p {
-	margin-top: 5px;
-	font-weight: 700;
-	margin-left: 15px;
-}
-.white-panel .white-header {
-	background: #f4f4f4;
-	padding: 3px;
-	margin-bottom: 15px;
-	color: #c6c6c6;
-}
-.white-panel .small {
-	font-size: 10px;
-	color: #ccd1d9;
-}
-
-.white-panel i {
-	color: #68dff0;
-	padding-right: 4px;
-	font-size: 14px;
-}
-
-/*STOCK CARD Panel*/
-.card {
-  background: white;
-  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1em; 
-  height: 250px;
-}
-.stock .stock-chart {
-  background: #00c5de;
-}
-.stock .stock-chart #chart {
-    height: 10.7em;
-    background: url(http://i.imgbox.com/abmuNQx2) center bottom no-repeat; 
-}    
-.stock .current-price {
-  background: #1d2122;
-  padding: 10px; 
-}
-.stock .current-price .info abbr {
-    display: block;
-    color: #f8f8f8;
-    font-size: 1.5em;
-    font-weight: 600;
-    margin-top: 0.18em;
-}
-.stock .current-price .changes {
-    text-align: right; 
-}
-.stock .changes .up {
-	color: #4fd98b
-}
-.stock .current-price .changes .value {
-      font-size: 1.8em;
-      font-weight: 700; 
-}
-.stock .summary {
-    color: #2f2f2f;
-    display: block;
-    background: #f2f2f2;
-    padding: 10px;
-	text-align: center;
-}
-.stock .summary strong {
-	font-weight: 900;
-	font-size: 14px;
-}
 
 /*Content Panel*/
 .content-panel {
@@ -1501,92 +1315,7 @@ PANELS CONFIGURATIONS
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAYAAAA1WQxeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGFJREFUeNpinHLMhgEHKADia0xQThIQs6JJ9gPxZhYQAcS6QHwDiI8hSYJAC0gBPxDLAvFcIJ6JJJkDxFNBVtgBcQ8Qa6BLghgwN4A4a9ElQYAFSj8C4mwg3o8sCQIAAQYA78QTYqnPZuEAAAAASUVORK5CYII=') no-repeat center center;
 }
 
-/* PROFILE PANELS */
-/* Profile 01*/
-#profile-01 {
-	background: url(../img/profile-01.jpg) no-repeat center top;
-	margin-top: -15px;
-	background-attachment: relative;
-	background-position: center center;
-	min-height: 150px;
-	width: 100%;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-#profile-01 h3 {
-	color: white;
-	padding-top: 50px;
-	margin: 0px;
-	text-align: center;
-}
-#profile-01 h6 {
-	color: white;
-	text-align: center;
-	margin-bottom: 0px;
-	font-weight: 900;
-}
-.profile-01 {
-	background: #68dff0;
-	height: 50px;
-}
-.profile-01:hover {
-	background: #2f2f2f;
-  -webkit-transition: background-color 0.6s;
-  -moz-transition: background-color 0.6s;
-  -o-transition: background-color 0.6s;
-  transition: background-color 0.6s;
-  cursor: pointer;
-}
-.profile-01 p {
-	color: white;
-	padding-top: 15px;
-	font-weight: 400;
-	font-size: 15px;
-}
 
-/* Profile 02*/
-#profile-02 {
-	background: url(../img/profile-02.jpg) no-repeat center top;
-	margin-top: -15px;
-	background-attachment: relative;
-	background-position: center center;
-	min-height: 200px;
-	width: 100%;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-#profile-02 .user {
-	padding-top: 40px;
-	text-align: center;
-}
-#profile-02 h4 {
-	color: white;
-	margin:0px;
-	padding-top: 8px;
-}
-.pr2-social a {
-	color: #cdcdcd;
-}
-.pr2-social a:hover {
-	color: #68dff0;
-}
-.pr2-social i {
-	margin-top: 15px;
-	margin-right: 12px;
-	font-size: 20px;
-}
 
 
 /*spark line*/
@@ -2237,9 +1966,6 @@ label {
     background: #68dff0;
     color: #fff;
     padding: 10px 0;
-    
-    width: 100%;
-    bottom: 0%;
 }
 
 
