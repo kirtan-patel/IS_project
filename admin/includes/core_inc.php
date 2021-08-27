@@ -1,4 +1,42 @@
 <?php
+
+    if (isset($_POST['submit_update'])) {
+        save_profile();
+    }
+
+    function save_profile(){
+        require 'config.php';
+        $user_id=$_SESSION['id_admin'];
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $phone=$_POST['phone'];
+        $email=$_POST['email'];
+        $about=$_POST['about'];
+        
+
+        $qu="UPDATE `details` SET `FirstName`='$fname',`LastName`='$lname',`Email`='$email',`phone_no`='$phone',`about_me`='$about' WHERE `ID`='$user_id'";
+        
+        if (mysqli_query($con,$qu)) {
+            ?>
+            <script>
+                window.alert("Profile updated, please login in back");
+                window.location.href="../login.php";
+            </script>
+            
+           <?php 
+        }else{
+            echo "<script>alert('Something went wrong, try again')
+                   </script>";
+            header("Location:dashboard.php");
+            
+        }
+
+    }
+?>
+
+
+
+<?php
 if (isset($_POST['submit_admin'])) {
     add_admin();
 }
@@ -154,6 +192,51 @@ function approved_hostel(){
 
        <?php }
     }
+?>
+
+<?php 
+
+    function feedback_user(){
+        require 'config.php';
+        $query="SELECT * from `feedback`";
+        $query_run=mysqli_query($con,$query);
+        $i=1;
+        while ($row=mysqli_fetch_assoc($query_run)) {
+         ?>
+         
+         <tr>
+                     <td><?php echo $i++; ?></td>
+
+                     <td class="table-stuff">
+                        <?php echo $row['name'] ?>
+                    </td>
+
+                    <td class="manage-list__item-img" style="text-align: center;">
+                    <a href="mailto:<?php echo $row['email'] ?>"><?php echo $row['email'] ?></a> 
+                    </td>
+                            
+                    <td class="manage-list__item-img" style="text-align: center;">
+                        <?php echo $row['message'] ?>
+                    </td>
+
+                    <td class="manage-list__item-img" style="text-align: center;">
+                        <?php echo $row['uploaded_on'] ?>
+                    </td>
+                    <td class="manage-list__item-img" style="text-align: center;">
+                        <a href="#" id="btn-checked" ><ion-icon name="checkmark-outline"></ion-icon>Checked</a>
+                    </td>
+                    
+                    
+
+                </tr>
+
+   <?php 
+    }
+
+        
+        
+    }
+
 ?>
 
 

@@ -24,7 +24,7 @@ require '../server.php';
     <!-- <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"> -->
 
-    <title>Landlord Dashboard</title>
+    <title>Admin Dashboard</title>
 
  
     <!-- External Fonts -->
@@ -115,7 +115,7 @@ require '../server.php';
               <li class="setting"><a href="registeredAgent.php" class="setting__link"><ion-icon name="home" class="setting__icon"></ion-icon>View Registered Agent</a></li>
               <li class="setting "><a href="viewUploads.php" class="setting__link"><ion-icon name="eye" class="setting__icon"></ion-icon>View Uploaded Hostels</a></li>
               <li class="setting "><a href="Unapprove.php" class="setting__link"><ion-icon name="close-circle" class="setting__icon"></ion-icon>View Unapproved Hostels</a></li>
-              <li class="setting "><a href="#" class="setting__link"><ion-icon name="mail-unread" class="setting__icon"></ion-icon>Users Feedback</a></li>
+              <li class="setting "><a href="userFeedback.php" class="setting__link"><ion-icon name="mail-unread" class="setting__icon"></ion-icon>Users Feedback</a></li>
     
             </ul><!-- settings -->
           </div><!-- .settings-block -->
@@ -165,7 +165,7 @@ require '../server.php';
             <textarea id="profile-introduce" required name="about"   rows="10" class="my-profile__field"><?php echo $row['about_me'] ?></textarea>
 
 
-            <input type="submit" name="submit_update" class="my-profile__submit" value="Update profile">
+            <input type="submit" name="submit_update" class="my-profile__submit" value="Update profile" style="margin-left: 25%;">
             
           </div><!-- .col -->
         </form>

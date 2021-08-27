@@ -149,7 +149,8 @@ if (isset($_POST['login_user'])) {
    <?php }else{
      ?>
       <script>
-        alert("Looks like you are not registred, so you can not send a feedback");
+        alert("Only registred people can give feedback!");
+        window.location.href="signup.php";
       </script>
 
    <?php

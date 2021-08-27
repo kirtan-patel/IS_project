@@ -113,7 +113,7 @@ require '../server.php';
               <li class="setting"><a href="registeredAgent.php" class="setting__link"><ion-icon name="home" class="setting__icon"></ion-icon>View Registered Agent</a></li>
               <li class="setting "><a href="viewUploads.php" class="setting__link"><ion-icon name="eye" class="setting__icon"></ion-icon>View Uploaded Hostels</a></li>
               <li class="setting "><a href="Unapprove.php" class="setting__link"><ion-icon name="close-circle" class="setting__icon"></ion-icon>View Unapproved Hostels</a></li>
-                  <li class="setting "><a href="#" class="setting__link"><ion-icon name="mail-unread" class="setting__icon"></ion-icon>Users Feedback</a></li>
+                  <li class="setting "><a href="userFeedback.php" class="setting__link"><ion-icon name="mail-unread" class="setting__icon"></ion-icon>Users Feedback</a></li>
               
     
             </ul><!-- settings -->

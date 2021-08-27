@@ -17,7 +17,13 @@
         $qu="UPDATE `details` SET `FirstName`='$fname',`LastName`='$lname',`Email`='$email',`phone_no`='$phone',`about_me`='$about' WHERE `ID`='$user_id'";
         
         if (mysqli_query($con,$qu)) {
-            header("Location:../login.php");
+            ?>
+            <script>
+                window.alert("Profile updated, please login in back");
+                window.location.href="../login.php";
+            </script>
+            
+           <?php 
             
             
         }else{

@@ -6192,3 +6192,27 @@ a.btn.btn-success.btn-sm {
   background-color: whitesmoke;
   margin-right: 20px;
 }
+
+.feedback-table{
+  border: 2px solid #ddd;
+  
+}
+.feedback-table td,th{
+  padding: 10px;
+  text-align: center;
+  border: 1px solid lightgray;
+
+}
+
+#btn-checked{
+  border: 1px solid black;
+  padding-left: 5px;
+  padding-right: 10px;
+  margin-top: 10px !important;
+  border-radius: 10px;
+  color: #050606;
+}
+#btn-checked:hover{
+  color: #1fc341;
+  background-color: azure;
+}
