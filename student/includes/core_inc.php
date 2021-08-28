@@ -119,7 +119,7 @@ function approved_hostel(){
             $propid=$row['ID'];
             ?> 
 
-<li class="manage-list__item">
+                <li class="manage-list__item">
                     <div class="manage-list__item-container">
                     <div class="manage-list__item-img">
                             <?php echo $i++ ?>
@@ -148,8 +148,7 @@ function approved_hostel(){
                         <!-- <a href="update_hostel.php?edit_hostel=<?php echo $row['ID'] ?>" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a><br>
                         <a href="includes/remove_hostel.php?remove=<?php echo $row['ID'] ?>" class="remove" id="#"><i class="fa fa-times" aria-hidden="true"></i> Remove</a> -->
                         <!-- <a href="includes/approve_hostel.php?status=<?php echo$row['ID'] ?>" class="btn btn-success btn-sm" ><ion-icon name="checkmark-outline"></ion-icon>Approve</a> -->
-                        <a href="contact.php?hosid=<?php echo $row['ID'] ?>" class="remove" ><i class="fa fa-phone" aria-hidden="true"></i> Contact owner</a>
-                        
+                        <a href="contact.php?hosid=<?php echo $row['ID'] ?>" class="remove" ><i class="fa fa-eye" aria-hidden="true"></i> View more</a>                        
                     </div>
 
                 </li><!--end for li -->

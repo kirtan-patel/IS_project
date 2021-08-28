@@ -271,8 +271,11 @@ $hosid = $_GET['hosid'];
                                             </div><!-- .contact-form__body -->
 
                                             <div class="contact-form__footer">
-                                                <input type="submit" class="contact-form__submit" name="submit_contact_form" value="Contact Owner">
+                                              <input type="submit" class="contact-form-con" name="submit_contact_far" style="width: 33%; background-color: rebeccapurple;" value="Intrested But Far">
+                                              <input type="submit" class="contact-form-con" name="submit_contact_expensive" style="width: 33%; background-color: red;" value="Intrested But Expensive">
+                                              <input type="submit" class="contact-form-con" name="submit_contact_form"style="width: 33%;" value="Contact Owner For Booking">
                                             </div><!-- .contact-form__footer -->
+                                            
                                         </form><!-- .contact-form -->
                                     </section><!-- .widget -->
                                 </div>

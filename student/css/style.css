@@ -6192,3 +6192,10 @@ a.btn.btn-success.btn-sm {
   background-color: whitesmoke;
   margin-right: 20px;
 }
+
+.contact-form-con{
+  width: 20%;
+  background-color: #1fc341;
+  color: beige;
+  display: inline-block;
+}
