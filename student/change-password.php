@@ -1,14 +1,15 @@
 <?php 
 require '../server.php';
   
-    
+
   if (!isset($_SESSION['id'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location:../login.php');
+    
+    header('location:../login.php');
   }
   if (isset($_POST['logout'])) {
-  	unset($_SESSION['id']);
-  	header("location:../login.php");
+    
+    unset($_SESSION['id']);
+    header("location:../login.php");
   }
 ?>
 
@@ -23,105 +24,138 @@ require '../server.php';
 
     <title>Change Password</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="assets/js/bootstrap-datepicker/css/datepicker.css" />
-    <link rel="stylesheet" type="text/css" href="assets/js/bootstrap-daterangepicker/daterangepicker.css" />
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style2.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway:400,700,800|Roboto:400,500,700" rel="stylesheet"> 
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/plugins.css">
+    <link rel="stylesheet" href="css/style.css">
   
   </head>
 
   <body>
-    
-
-  <section id="container" >
-     <?php include("includes/header.php");?>
-      <?php include("includes/sidebar.php");?>
-      <?php include("includes/core_inc.php");?>
-      <section id="main-content">
-          <section class="wrapper"><br>
+   <header class="header header--blue">
+    <div class="container">
+      <div class="header__main">
+        <div class="header__logo">
+          <a href="#">
+            <h1 style="color: whitesmoke;">Student Panel</h1>
             
-                   <h3 class="submit-property__headline" style="color:white;">&gt;<a href="change-password.php">Change Password</a></h3>
+            
+          </a>
+        </div><!-- .header__logo -->
 
-                  
-          	<!-- <h3><i class="fa fa-angle-right"></i> Change Password</h3> -->
-          	
-          	<!-- BASIC FORM ELELEMNTS -->
-          	<div class="row mt">
-          		<div class="col-lg-12">
-                  <div class="form-panel">
-                  	  <!-- <h4 class="mb"><i class="fa fa-angle-right"></i> User Change Password</h4> -->
+        <div class="nav-mobile">
+          <a href="#" class="nav-toggle">
+            <span></span>
+          </a><!-- .nav-toggle -->
+        </div><!-- .nav-mobile -->
 
+        <div class="header__menu header__menu--v1">
+          <ul class="header__nav">
+            <li class="header__nav-item">
+              <a href="index.php" class="header__nav-link">Home</a>
+            </li>
+            
+  
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Hi, <?php echo $_SESSION['username'];?></a>
+            <ul>
+              <li class="setting"><a href="dashboard.php" class="setting__link"><ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile</a></li>
+            
+              <li class="setting"><a href="change-password.php" class="setting__link"><ion-icon name="lock-open" class="setting__icon"></ion-icon>Change Password</a></li>
+              <form action="dashboard.php" method="post">
+              <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
+              </form>
+          </ul>
+          </li>
+          </ul><!-- .header__nav -->
+        </div><!-- .header__menu -->
+
+        
+     </div><!-- .header__main -->
+   </div><!-- .container -->
+ </header><!-- .header -->
+    <!-- <?php 
+       echo $_SESSION['id'];
+    ?> -->
+  <section id="container" >
+
+
+      <?php include("includes/core_inc.php");?>
+
+              <div class="container">
+    <ul class="ht-breadcrumbs ht-breadcrumbs--y-padding ht-breadcrumbs--b-border">
+      <li class="ht-breadcrumbs__item"><a href="#" class="ht-breadcrumbs__link"><span class="ht-breadcrumbs__title">Home</span></a></li>
+      <li class="ht-breadcrumbs__item"><a href="#" class="ht-breadcrumbs__link"><span class="ht-breadcrumbs__title">Pages</span></a></li>
+      <li class="ht-breadcrumbs__item"><span class="ht-breadcrumbs__page">My Profile</span></li>
+    </ul><!-- .ht-breadcrumb -->
+
+    <div class="my-profile__container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2 class="bookmarked-listing__headline">Hello, <strong><?php echo $_SESSION['username'];?></strong></h2>
+          <div class="settings-block">
+            <span class="settings-block__title">Manage Account</span>
+            <ul class="settings">
+              <li class="setting setting--current"><a href="dashboard.php" class="setting__link"><ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile</a></li>
+            </ul><!-- settings -->
+          </div><!-- .settings-block -->
+
+          <div class="settings-block">
+            <span class="settings-block__title">Manage Listing</span>
+            <ul class="settings">
+          
+              <li class="setting "><a href="viewhostel.php" class="setting__link"><ion-icon name="cloud-upload" class="setting__icon"></ion-icon>View Approved Hostels</a></li>
+              
+            </ul><!-- settings -->
+          </div><!-- .settings-block -->
+
+          <div class="settings-block">
+            <ul class="settings">
+              <li class="setting"><a href="change-password.php" class="setting__link"><ion-icon name="lock-open" class="setting__icon"></ion-icon>Change Password</a></li>
+              <form action="dashboard.php" method="post">
+              <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
+              </form>
+            </ul><!-- settings -->
+          </div><!-- .settings-block -->
+        </div><!-- .col -->
                       
 
 
-                      <form class="form-horizontal style-form" method="post" name="chngpwd" action="change-password.php">
+                      <form method="post"   action="change-password.php">
                           
+<div class="col-md-9">
 
-                            <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">New Password</label>
-                              <div class="col-sm-10">
-                                  <input type="password" name="newpassword" required="required" class="form-control">
-                              </div>
-                          </div>
 
-                            
+                        <label for="profile-new-password" class="my-profile__label">New Password</label>
+                        <input type="password" required name="newpassword" class="my-profile__field" id="profile-new-password">
 
-                            <div class="form-group">
-                                <div class="col-sm-10" style="padding-left:25% ">
-                                    <button type="submit" name="submit_new_password" class="btn btn-primary">Submit</button>
-                                </div>
-                            </div>
+                        <button type="submit" name="submit_new_password" class="my-profile__submit">Save Changes</button>
+                    </div><!-- .col -->
 
                           </form>
-                          </div>
-                          </div>
-                          </div>
+      </div><!-- .row -->
+    </div><!-- .my-profile__container -->
+  </div><!-- .container -->
                           
-          	
-          	
-		</section><! --/wrapper -->
-      </section><!-- /MAIN CONTENT -->
-    <?php include("includes/footer.php");?>
+            
+            
+        <?php include("includes/footer.php");?>
   </section>
+   <!-- icon show script -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-
-
-    <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
-
-    <!--script for this page-->
-    <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
-
-	<!--custom switch-->
-	<!-- <script src="assets/js/bootstrap-switch.js"></script> -->
-	
-	<!--custom tagsinput-->
-	<script src="assets/js/jquery.tagsinput.js"></script>
-	
-	<!--custom checkbox & radio-->
-	
-	<script type="text/javascript" src="assets/js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-	<script type="text/javascript" src="assets/js/bootstrap-daterangepicker/date.js"></script>
-	<script type="text/javascript" src="assets/js/bootstrap-daterangepicker/daterangepicker.js"></script>
-	
-	<script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-	
-	
-	<script src="assets/js/form-component.js"></script>    
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDyCxHyc8z9gMA5IlipXpt0c33Ajzqix4"></script>
+<script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js"></script>
+<script src="js/custom.js"></script>  
     
     
   
 
   </body>
 </html>
+

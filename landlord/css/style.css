@@ -6175,3 +6175,11 @@ html.hidescrollbar body {
   filter: drop-shadow(3px 8px 9px black);
   transition: 0.3s;
 }
+
+
+.accept-btn{
+  width: 20%; 
+  margin-left: 35%; 
+  text-align:center;
+  background-color: #1fc341;
+}

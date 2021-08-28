@@ -144,15 +144,30 @@ require '../server.php';
                                         <!-- <input type="text"  id="property-price" name="hos_type" required> -->
                                         <select class="ht-field" id="property-type" name="hos_type" required>
                                             <option disabled="disabled">Choose room Types</option>
-                                            <option >Private room</option>
+                                            <option Value="Private room" >Private room</option>
                                             <option >Shared room</option>
-                                            
                                         </select>
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
 
+                                <div class="col-md-4">
+                                    <div class="submit-property__group">
+                                        <label for="property-price" class="submit-property__label">if shared *</label>
+                                        <input type="number"  id="property-price" class="submit-property__field" name="share_no" placeholder="How many people per room">
+                                    </div><!-- .submit-property__group -->
+                                  </div><!-- .col -->
+
+                                  <div class="col-md-4">
+                                    <div class="submit-property__group">
+                                        <label for="property-price" class="submit-property__label">bed available *</label>
+                                        <input type="number"  id="property-price" class="submit-property__field" name="bed_no" placeholder="number of beds"  required>
+                                        
+                                    </div><!-- .submit-property__group -->
+                                </div><!-- .col -->
+                            </div>
+                          
+                            
                                 
-                            </div><!-- .row -->
 
                             <div class="row">
                                 <div class="col-md-4">

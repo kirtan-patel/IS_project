@@ -1,3 +1,4 @@
+
 <?php include('server.php')
     
 
@@ -97,7 +98,7 @@ ul li {
             left: 48%;
             transform: translate(-48%, -27%);
             color: #fff;
-            width: 50%;
+            width: 450px;
             height:fit-content;
             padding: 14px 40px;
             border-radius: 10px;
@@ -275,7 +276,6 @@ p{
         select{
             background:none;
             width:100px;
-            
         }
       
         h3 {
@@ -368,6 +368,7 @@ p{
                 <li class="nav-item"><a href="index.php">Home</a></li>
                 <li class="nav-item"><a href="login.php" >Log in</a></li>
                 <li class="nav-item"><a href="signup.php">Sign up</a></li>
+                  <li class="nav-item"><a  href="contact.php">Contact Us</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -399,11 +400,28 @@ p{
             <input type="Password" placeholder="Password" name="pass1" value=""><br><br>
             <label for="confirm password">Confirm Password:</label>
             <input type="Password" placeholder="Confirm password" name="pass2" value=""><br><br>
+             <label for="religion">Religion:</label>
+            <input type="text" placeholder="Religion" name="religion" value=""><br><br>
+            <label for="religion">Previous hostel/location:</label>
+            <input type="text" placeholder="Previous hostel/location" name="location" value=""><br><br>
+
+            <label for="Gender">Gender: </label>
+             <select name="gender" id="sel">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select><br><br>
+            <label for="User type">Martial status: </label>
+            <select name="mstatus" id="sel">
+                <option value="married">Married</option>
+                <option value="single">Single</option>
+            </select><br><br>
             <label for="User type">User type: </label>
             <select name="type" id="sel">
                 <option value="student">Student</option>
                 <option value="landlord">Landlord</option>
             </select><br><br>
+           
 
 
 

@@ -17,6 +17,10 @@ if (isset($_POST['reg_user'])) {
   $email=mysqli_real_escape_string($con, $_POST['email']);
   $pass1=mysqli_real_escape_string($con, $_POST['pass1']);
   $pass2=mysqli_real_escape_string($con, $_POST['pass2']);
+  $religion=mysqli_real_escape_string($con, $_POST['religion']);
+  $Location1=mysqli_real_escape_string($con, $_POST['location']);
+  $mstatus=$_POST['mstatus'];
+  $gender=$_POST['gender'];
   $type=$_POST['type'];
   $p_no=$_POST['phone_number'];
   
@@ -50,11 +54,11 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
   	$password = md5($pass1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO `details`( `FirstName`, `LastName`, `Email`, `phone_no`,`Password`, `Type`) VALUES ('$fname','$lname','$email','$p_no','$password','$type')";
+  	$query = "INSERT INTO `details`( `FirstName`, `LastName`, `Email`, `phone_no`,`Password`, `Type`,`Religion`,`location`,`mstatus`,`gender`) VALUES ('$fname','$lname','$email','$p_no','$password','$type','$religion','$Location1','$mstatus','$gender')";
   	mysqli_query($con, $query);
   	$_SESSION['username'] = $fname;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location:login.php');
+  	header('location:signup.php');
   }
 }
 
@@ -121,7 +125,6 @@ if (isset($_POST['login_user'])) {
   }
   
   ?>
-
   <?php 
   if (isset($_POST['submit_form'])) {
       sub_form();
@@ -133,7 +136,7 @@ if (isset($_POST['login_user'])) {
     $mail=$_POST['email_feed'];
     $mess=$_POST['message_feed'];
 
-    $user_check = "SELECT * FROM `details` WHERE `Email`='$mail' LIMIT 1";
+    $user_check = "SELECT * FROM `details` WHERE `Email`='$mail'";
     $results = mysqli_query($con, $user_check);
     $user_check = mysqli_fetch_assoc($results);
 
@@ -149,8 +152,7 @@ if (isset($_POST['login_user'])) {
    <?php }else{
      ?>
       <script>
-        alert("Only registred people can give feedback!");
-        window.location.href="signup.php";
+        alert("Looks like you are not registred, so you can not send a feedback");
       </script>
 
    <?php
@@ -159,4 +161,3 @@ if (isset($_POST['login_user'])) {
 
   }
   ?>
-  

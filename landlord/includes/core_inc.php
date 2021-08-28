@@ -75,6 +75,8 @@ function upload_hos(){
     $hos_fri_add=$_POST['address'];
     $hos_services=$_POST['services'];
     $hos_rul=$_POST['rules'];
+    $bed_no=$_POST['bed_no'];
+    $share_no=$_POST['share_no'];
 
     
 
@@ -93,7 +95,7 @@ if (!empty($_FILES["feat_image"]["name"])) {
 
           
 
-          $quer="INSERT INTO `hos_details`(`agent_id`, `hos_name`, `hos_type`, `price`, `description`, `ft_img`, `location`, `friendly_add`, `services`, `rules`) VALUES ('$user_id','$hos_title','$hos_type','$hos_price','$hos_des','$targetPathFeatImg','$hos_location','$hos_fri_add','$hos_services','$hos_rul')";
+          $quer="INSERT INTO `hos_details`(`agent_id`, `hos_name`, `hos_type`,`share_no`,`bed_no`, `price`, `description`, `ft_img`, `location`, `friendly_add`, `services`, `rules`) VALUES ('$user_id','$hos_title','$hos_type','$share_no','$bed_no','$hos_price','$hos_des','$targetPathFeatImg','$hos_location','$hos_fri_add','$hos_services','$hos_rul')";
 
             if ($query_run = mysqli_query($con, $quer)) {
                 
@@ -179,6 +181,7 @@ if (!empty($_FILES["feat_image"]["name"])) {
                             <h3 class="listing__title"><a href="viewhostel.php?hosid=<?php echo $row['ID'] ?>"><?php echo $row['hos_name']; ?></a></h3>
                             <p class="listing_location"><ion-icon name="location-outline"></ion-icon>Location: <?php echo $row['location'] ?></p>
                             <p class="listing_price"><ion-icon name="pricetag-outline" ></ion-icon>Price: KSH <?php echo $row['price'] ?></p>
+                            <p class="listing_price"><ion-icon name="bed-outline" ></ion-icon>Beds available <?php echo $row['bed_no'] ?></p>
                         </div>
                     </div><!--end for manage-list container -->
                     <div class="manage-list__expire-date"><!-- div for date -->
@@ -280,7 +283,9 @@ if (!empty($_FILES["feat_image"]["name"])) {
         $hos_add=$_POST['address'];
         $hos_services=$_POST['services'];
         $hos_rule=$_POST['rules'];
-        $query_update="UPDATE `hos_details` set `hos_name`='$hos_name',`hos_type`='$hos_type',`price`='$hos_price',`description`='$hos_des',`location`='$hos_loc',`friendly_add`='$hos_add',`services`='$hos_services',`rules`='$hos_rule' where `ID`='$hosid'";
+        $hos_share_no=$_POST['share_no'];
+        $hos_bed_no=$_POST['bed_no'];
+        $query_update="UPDATE `hos_details` set `hos_name`='$hos_name',`hos_type`='$hos_type',`share_no`='$hos_share_no',`bed_no`='$hos_bed_no',`price`='$hos_price',`description`='$hos_des',`location`='$hos_loc',`friendly_add`='$hos_add',`services`='$hos_services',`rules`='$hos_rule' where `ID`='$hosid'";
         $query3=mysqli_query($con,$query_update);
         if ($query3) {
             echo '<script>alert("Hostel has been updated!")
@@ -294,12 +299,48 @@ if (!empty($_FILES["feat_image"]["name"])) {
     ?>
 
     <?php 
+
+
+            if (isset($_POST['accept-btn'])) {
+                require 'config.php';
+                $contact_id=$_POST['contact_id'];
+                $hostel_id=$_POST['hostel_id'];
+                $up_query="UPDATE `contact` set `checked`='checked' where `ID`='$contact_id'";
+                $up_run=mysqli_query($con,$up_query);
+                
+
+                //query to bring details from the selected hostel and minus the bed availability
+                
+                $minus_query="SELECT * from `hos_details` where ID = '$hostel_id'";
+                $run_minus_query=mysqli_query($con,$minus_query);
+                $roww=mysqli_fetch_assoc($run_minus_query);
+                $bed_number=$roww['bed_no'];
+                if ($bed_number>0) {
+                    $minus_by=1;
+                    $bed_number= bcsub($bed_number,$minus_by);
+                    $update_newbed="UPDATE `hos_details` set `bed_no`='$bed_number' where `ID`='$hostel_id' ";
+                    if ($run_nedbed_query=mysqli_query($con,$update_newbed)) {
+                        ?>
+                        <script>
+                            window.alert("One bed has been removed")
+                        </script>
+                   <?php }
+                }else{
+                    ?>
+                    <script>
+                            window.alert("They are no available beds for this hostel");
+                    </script>
+
+             <?php   }
+
+            }
         function pop_contact(){
             require 'config.php';
-            $query4="SELECT * from `contact` where `agent_id`='" . $_SESSION['id_landlord'] . "'";
+            $land_id=$_SESSION['id_landlord'];
+            $query4="SELECT * from `contact` where `agent_id`='$land_id' and `checked`='pending'";
             $query_run4 = mysqli_query($con, $query4);
             $query_row4 = mysqli_num_rows($query_run4);
-            $i=1;
+            
 
             if ($query_row4 == 0) {
                 echo "No contacts made yet";
@@ -310,11 +351,11 @@ if (!empty($_FILES["feat_image"]["name"])) {
                     $query5="SELECT * from `hos_details` where `ID`='$hosid'";
                     $query_run5 = mysqli_query($con, $query5);
                     $fetch= mysqli_fetch_assoc($query_run5);
-                    
-                    
 
 
                    ?> 
+
+                  
                     <div class="col-sm-6">
             <div class="property__form-wrapper">
                 <h4>Name </h4>
@@ -357,14 +398,22 @@ if (!empty($_FILES["feat_image"]["name"])) {
             </div>
         </div>
         </div>
+        
         </div><!-- .property__form-wrapper -->
+        <form action="viewContact.php" method="post">
 
-        Contact <?php echo $i++ ?>
+        <input type="submit" name="accept-btn" value="Accept" class="accept-btn">
+        <input type="hidden" name="contact_id" value="<?php echo $row['ID']; ?>" >
+        <input type="hidden" name="hostel_id" value="<?php echo $fetch['ID']; ?>" >
+
+        </form>
+        
+
+        Contact ID <?php echo $row['ID']; ?>
+        
         <hr style="background-color:red;">
         <?php      }
             }
-            
-           
         
         }
     

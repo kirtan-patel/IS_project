@@ -112,7 +112,7 @@ body{
     </header>
 <div class="background-image">
   <div class="background-text fade fadeOut">
-    <h1 style="font-size:50px; background:none;" class="h1">Looking for an hostel?</h1><br>
+    <h1 style="font-size:50px; background:none; " class="h1">Looking for an hostel?</h1><br>
     <h4 style=" background:none;">Click below to log in to the sytem to choose the hostel of your choice! </h4>
      <a href="login.php" class="click"><button class="btn1"> click here</button></a>
   </div>
@@ -129,9 +129,15 @@ body{
           <a href="contact.php" class="read" style="color: whitesmoke;">Feedback Form</a>
         </div>
       </section>
+
+ 
     
        
    
     <script src="Script.js"></script>
+    
 </body>
+<!-- script for review slide -->
+
+
 </html>

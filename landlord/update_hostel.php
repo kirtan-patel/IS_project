@@ -165,9 +165,25 @@ require '../server.php';
                                         </select>
                                     </div><!-- .submit-property__group -->
                                 </div><!-- .col -->
-
                                 
+                                <div class="col-md-4">
+                                    <div class="submit-property__group">
+                                        <label for="property-price" class="submit-property__label">If shared *</label>
+                                        <input type="number"  id="property-price" name="share_no" class="submit-property__field" placeholder="Number of people per room" value="<?php echo $row['share_no'] ?>">
+                                        
+                                    </div><!-- .submit-property__group -->
+                                </div><!-- .col -->
+                                
+                                <div class="col-md-4">
+                                    <div class="submit-property__group">
+                                        <label for="property-price" class="submit-property__label">Beds Available *</label>
+                                        <input type="number"  id="property-price" name="bed_no" class="submit-property__field" placeholder="No of beds available" value="<?php echo $row['bed_no'] ?>" required>
+                                        
+                                    </div><!-- .submit-property__group -->
+                                </div><!-- .col -->
                             </div><!-- .row -->
+
+                            
 
                             <div class="row">
                                 <div class="col-md-4">

@@ -83,9 +83,6 @@
   padding-left: 15px;
   padding-right: 15px;
 }
-label .label-danger{
-  color: red;
-}
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -995,6 +992,8 @@ body {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
+  background-color: antiquewhite;
+
 }
 h1,
 h2,
@@ -1235,7 +1234,7 @@ button .btn-success{
   background-color: green;
 }
 .header--blue {
-  background-color: rgb(26, 0, 0);
+  background-color: darkblue;
 }
 .header--top {
   position: absolute;
@@ -1265,7 +1264,7 @@ button .btn-success{
 }
 @media (max-width: 991px) {
   .header__logo img {
-    width: 100px;
+    width: 120px;
   }
 }
 .header__cta {
@@ -2374,7 +2373,7 @@ button .btn-success{
 }
 .features__overlay {
   padding: 95px 0;
-  background-color: rgba(20, 13, 66, 255);
+  background-color: rgba(11, 33, 76, 0.9);
 }
 .feature {
   margin-bottom: 32px;
@@ -2532,10 +2531,9 @@ button .btn-success{
   position: relative;
   background-color: #ffffff;
   transition: 0.3s all ease-out;
-  box-shadow: 3px 2px 7px 4px rgba(0, 1, 0, 0.12);
 }
 .listing:hover {
-  box-shadow: 5px 2px 7px 5px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.12);
 }
 @media only screen and (min-width: 992px) {
   .listing--v2 {
@@ -2617,20 +2615,19 @@ button .btn-success{
   margin-bottom: 0;
 }
 .listing__location {
-  margin-bottom: 14px;
-  color: #000;
+  margin-bottom: 8px;
+  color: #999999;
   font-size: 13px;
-  font-weight: bolder;
 }
 .listing__location--no-b-margin {
   margin-bottom: 0;
 }
 .listing__price {
   margin-bottom: 20px;
-  color: #000;
-  font-size: 13px;
-  font-weight: bold;
-  text-transform: capitalize;
+  color: #1fc341;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 .listing__price a {
   color: #1fc341;
@@ -2716,7 +2713,7 @@ button .btn-success{
   border: 1px solid #1fc341;
   padding: 8px 35px;
   color: #1fc341;
-  font-size: 10px;
+  font-size: 13px;
   text-transform: uppercase;
   border-radius: 40px;
   transition: 0.3s all ease-out;
@@ -3890,7 +3887,7 @@ button .btn-success{
   color: #1fc341;
 }
 .ht-breadcrumbs__page {
-  color: #333333;
+  color: red;
 }
 /* 4.25. Agents With Info / .agents-with-info
 ***********************/
@@ -4231,7 +4228,7 @@ button .btn-success{
 /* 4.36. Listing Search / .listing-search
 ***********************/
 .main-search {
-  background-color: #330000;
+  background-color: #f6f6f6;
 }
 .main-search--static {
   padding-top: 60px;
@@ -4267,7 +4264,7 @@ button .btn-success{
 }
 .listing-search {
   padding: 10px 15px 0;
-  background-color: #330000;
+  background-color: #22355b;
 }
 .listing-search__label {
   display: block;
@@ -5040,6 +5037,10 @@ button .btn-success{
   margin-bottom: 20px;
   border: 1px solid #eeeeee;
   color: #666666;
+  background-color: #ededed;
+    padding: 10px;
+    border-radius: 10px;
+    padding-left: 10px;
 }
 .property__form-field:focus {
   border-color: #1fc341;
@@ -5676,7 +5677,7 @@ div.similar-home:last-of-type {
   align-items: center;
   margin-bottom: 30px;
   padding: 20px;
-  background-color: #eeeeee;
+  background-color: darkgray;
   border-radius: 3px;
 }
 .manage-list__item {
@@ -5685,7 +5686,7 @@ div.similar-home:last-of-type {
   align-items: center;
   margin-bottom: 30px;
   padding-bottom: 30px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid darkgray;
 }
 .manage-list__item:last-child {
   padding-bottom: 0;
@@ -5699,11 +5700,11 @@ div.similar-home:last-of-type {
   margin-bottom: 0;
 }
 .manage-list__item-img {
-  display: none;
+  margin-right: 30px;
 }
 @media only screen and (min-width: 992px) {
   .manage-list__item-img {
-    display: block;
+    
     margin-right: 30px;
   }
 }
@@ -5720,7 +5721,16 @@ div.similar-home:last-of-type {
   color: #1fc341;
 }
 .manage-list__action .remove:hover {
-  color: red;
+  color: 
+    color: #1fc341;
+}
+.remove{
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  text-align: center;
+  margin-right: 15px;
+  width: 100%;
 }
 /* 4.43. My Property / .my-property
 ***********************/
@@ -5877,7 +5887,7 @@ div.similar-home:last-of-type {
   display: block;
   margin-bottom: 10px;
   color: #333333;
-  font-weight: bold;
+  font-weight:bold;
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
 }
 .my-profile__field {
@@ -5934,7 +5944,7 @@ div.similar-home:last-of-type {
 .submit-property__headline {
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #21355d;
   font-size: 20px;
 }
 .submit-property__field {
@@ -5948,6 +5958,7 @@ div.similar-home:last-of-type {
   margin-bottom: 10px;
   color: #333333;
   font-weight: 500;
+  text-shadow: 0px 3px 8px #333;
 }
 .submit-property__unit {
   position: absolute;
@@ -5996,7 +6007,7 @@ div.similar-home:last-of-type {
 }
 .submit-property__upload {
   position: relative;
-  border: 2px dashed #dddddd;
+  border: 2px dashed dimgray;
   text-align: center;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -6137,4 +6148,47 @@ html.hidescrollbar {
 }
 html.hidescrollbar body {
   overflow: hidden;
+}
+.site-footer {
+  background: #68dff0;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+
+.go-top {
+  margin-right: 1%;
+  float: right;
+  background: rgba(255,255,255,.5);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+.go-top i {
+  color: #2A3542;
+}
+
+.site-min-height {
+  min-height: 900px;
+}
+
+.img_edit{
+  filter: brightness(40%);
+  transition: 0.3s;
+  border-radius: 10px;
+}
+.img_edit:hover{
+  filter: brightness(100%);
+  filter: drop-shadow(3px 8px 9px black);
+  transition: 0.3s;
+}
+a.btn.btn-success.btn-sm {
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  background-color: whitesmoke;
+  margin-right: 20px;
 }

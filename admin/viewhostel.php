@@ -174,6 +174,7 @@ $hosid = $_GET['hosid'];
                     <li class="property__details-item"><span class="property__details-item--cat">Location:</span><?php echo $ress['location']; ?></li>
                     <li class="property__details-item"><span class="property__details-item--cat">friendly address:</span> <?php echo $ress['friendly_add']; ?><li>
                     <li class="property__details-item"><span class="property__details-item--cat">Services: </span><?php  echo $ress['services']; ?>
+                    
                    
                    </ul><!-- .property__details-list -->
                    <iframe width="100%" height="250" src="https://maps.google.com/maps?q=<?php echo $address; ?>&output=embed"></iframe>     

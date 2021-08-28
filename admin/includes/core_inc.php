@@ -173,6 +173,7 @@ function approved_hostel(){
                             <p class="listing_price"><ion-icon name="pricetag-outline" ></ion-icon>Price: KSH <?php echo $row['price'] ?></p>
                             <p class="listing_price"><ion-icon name="warning-outline" ></ion-icon>Rules <?php echo $row['rules'] ?></p>
                             <p class="listing_price"><ion-icon name="pricetag-outline" ></ion-icon>Hostel Type <?php echo $row['hos_type'] ?></p>
+                            
                             <p class="listing_price"><ion-icon name="cafe-outline" ></ion-icon>Services: <?php echo $row['services'] ?></p>
                         </div>
                     </div><!--end for manage-list container -->
