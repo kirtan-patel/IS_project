@@ -46,6 +46,11 @@ function submit_contact_form(){
             require 'config.php';
             $name=$_POST['name'];
             $Email=$_POST['Email'];
+            $hos_id=$_POST['hostel_id'];
+            $query="SELECT `transport` from `hos_details` where `ID`='$hos_id'";
+            $run_query=mysqli_query($con,$query);
+            $result=mysqli_fetch_assoc($run_query);
+            $message=$result['transport'];
             
      if (!empty($Email)) {
         $mail= new PHPMailer();
@@ -61,7 +66,7 @@ function submit_contact_form(){
 
         //message
         $mail->Subject='Acommodation system';
-        $mail->Body='Hello '.$name.' I have seen your message and i would love to tell you that we have a bus that drops and picks student at specific times at an extra cost of 500/month';
+        $mail->Body='Hello '.$name.' This is regarding your recent feedback on the hostel you liked, we had asked the owner if they provide transportaion and this is what they said: '.$message;
 
         $mail->addAddress($Email);
         $mail->send();
@@ -76,7 +81,6 @@ function submit_contact_form(){
                     <script>
                         window.alert('Oh no, looks like email is not correct');
                         window.location.href="../viewhostel.php";
-                        
                     </script>
    
 <?php }
