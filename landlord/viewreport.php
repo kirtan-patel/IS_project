@@ -3,38 +3,47 @@ require '../server.php';
   
 
   if (!isset($_SESSION['id_landlord'])) {
-  	$_SESSION['msg'] = "You must log in first";
+  	// $_SESSION['msg'] = "You must log in first";
   	header('location:../login.php');
+    
   }
   if (isset($_POST['logout'])) {
+    unset($_SESSION['id_landlord']);
   	
-  	unset($_SESSION['id_landlord']);
+  	
   	header("location:../login.php");
   }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Dashboard">
-    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <!-- <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina"> -->
 
-    <title>all hostel</title>
+    <title>Landlord Dashboard</title>
+
+ 
+    <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway:400,700,800|Roboto:400,500,700" rel="stylesheet"> 
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/plugins.css">
+    <link rel="stylesheet" href="css/style.css">
     
-        <!--external css-->
-        <!-- <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" /> -->
-       
-  
-       <!-- Custom styles for this template -->
-       <link href="css/style.css" rel="stylesheet">
-       <link href="css/plugins.css" rel="stylesheet">
-</head>
-<body>
-  <?php include('includes/core_inc.php') ?>
-<section id="container" >
-<header class="header header--blue">
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  <header class="header header--blue">
     <div class="container">
       <div class="header__main">
         <div class="header__logo">
@@ -56,7 +65,8 @@ require '../server.php';
             <li class="header__nav-item">
               <a href="index.php" class="header__nav-link">Home</a>
             </li>
-          
+            
+  
             <li class="header__nav-item">
               <a href="#" class="header__nav-link">Hi, <?php echo $_SESSION['username_landlord'];?></a>
             <ul>
@@ -75,12 +85,18 @@ require '../server.php';
      </div><!-- .header__main -->
    </div><!-- .container -->
  </header><!-- .header -->
+    <!-- <?php 
+       echo $_SESSION['id_landlord'];
+    ?> -->
+  <section id="container" >
 
- <div class="container">
+<?php include("includes/core_inc.php");?>
+      
+<div class="container">
     <ul class="ht-breadcrumbs ht-breadcrumbs--y-padding ht-breadcrumbs--b-border">
       <li class="ht-breadcrumbs__item"><a href="#" class="ht-breadcrumbs__link"><span class="ht-breadcrumbs__title">Home</span></a></li>
       <li class="ht-breadcrumbs__item"><a href="#" class="ht-breadcrumbs__link"><span class="ht-breadcrumbs__title">Pages</span></a></li>
-      <li class="ht-breadcrumbs__item"><span class="ht-breadcrumbs__page">viewContact</span></li>
+      <li class="ht-breadcrumbs__item"><span class="ht-breadcrumbs__page">My Profile</span></li>
     </ul><!-- .ht-breadcrumb -->
 
     <div class="my-profile__container">
@@ -116,35 +132,37 @@ require '../server.php';
             </ul><!-- settings -->
           </div><!-- .settings-block -->
         </div><!-- .col -->
-        <div class="col-md-9">
-                    <ul class="manage-list manage-list--my-property">
-                        <li class="manage-list__header">
-                            <span  class="manage-list__title"><i class="fa fa-calendar-o" aria-hidden="true"></i> Contacts</span>
-                            <span class="manage-list__title"><i class="fa fa-bookmark-o" aria-hidden="true"></i> Name | Contact | Message</span>
-                        </li>  
-                        <div style="max-height: 500px; overflow-y: scroll;"> 
-                          <?php pop_contact(); ?>
-                        </div>
-                         </div>                        
-                    </ul>
-                </div><!-- .col -->
+        
+        <table class="feedback-table" style="margin-top: 10px; width:70%; background-color:white;">
+                              <thead>
+                              <tr style="text-align: center">
+                                  <th style="text-align: center">Report for to far</th>
+                                  <th style="text-align: center">Report for to expensive</th>
+                                  <th style="text-align: center">Total booked rooms</th>
+                              </tr>
+                              </thead>
+                              <tbody >
+                                  <td style="text-align: center;"><a href="report1.php" target="blank">Report 1</a></td>
+                                  <td style="text-align: center;"><a href="report2.php" target="blank">Report 2</a></td>
+                                  <td style="text-align: center;"><a href="report3.php" target="blank">Report 3</a></td>
+                              </tbody>
+                          </table>
+          
+     
+      
+   
+  </section>
+   <!-- footer -->
+   <?php include "includes/footer.php" ?>
+  <!-- icon show script -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
- <!-- include datafile -->
- 
-</section>
-<?php include("includes/footer.php");?>
-
-  <script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDyCxHyc8z9gMA5IlipXpt0c33Ajzqix4"></script>
 <script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js"></script>
 <script src="js/custom.js"></script>
-
-  <!-- icon show script -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    
-
   </body>
 </html>
 

@@ -305,8 +305,11 @@ if (!empty($_FILES["feat_image"]["name"])) {
 
             if (isset($_POST['accept-btn'])) {
                 require 'config.php';
+                require_once ('../PHPMailer/PHPMailerAutoload.php');
                 $contact_id=$_POST['contact_id'];
                 $hostel_id=$_POST['hostel_id'];
+                $email=$_POST['email'];
+                $name=$_POST['name'];
                 $up_query="UPDATE `contact` set `checked`='checked' where `ID`='$contact_id'";
                 $up_run=mysqli_query($con,$up_query);
                 
@@ -326,7 +329,28 @@ if (!empty($_FILES["feat_image"]["name"])) {
                         <script>
                             window.alert("One bed has been removed")
                         </script>
-                   <?php }
+
+                   <?php 
+                   $mail= new PHPMailer();
+                   $mail->isSMTP();
+                   $mail->SMTPAuth = true;
+                   $mail->SMTPSecure= 'ssl';
+                   $mail->Host='smtp.gmail.com';
+                   $mail->Port='465';
+                   $mail->isHTML();
+                   $mail->Username='example.ISproject@gmail.com';
+                   $mail->Password='example.ISproject';
+                   $mail->setFrom('no-reply@gmail.com');
+           
+                   //message
+                   $mail->Subject='Acommodation system';
+                   $mail->Body='Hello '.$name.' Congratulations! your room for your choosen hostel has been booked, we look forward to host you! ' ;
+           
+                   $mail->addAddress($email);
+                   $mail->send();
+                   
+                
+                }//end for $run_nedbed
                 }else{
                     ?>
                     <script>
@@ -369,6 +393,7 @@ if (!empty($_FILES["feat_image"]["name"])) {
             <div class="property__form-wrapper"> 
                 <h4>Email </h4>
                 <div class="property__form-field">
+                    
                     <a href="mailto:<?php echo $row['email'] ?>"><?php echo $row['email'] ?></a> 
                 </div>
             </div>
@@ -407,6 +432,8 @@ if (!empty($_FILES["feat_image"]["name"])) {
         <input type="submit" name="accept-btn" value="Accept" class="accept-btn">
         <input type="hidden" name="contact_id" value="<?php echo $row['ID']; ?>" >
         <input type="hidden" name="hostel_id" value="<?php echo $fetch['ID']; ?>" >
+        <input type="hidden" name="email" value="<?php echo $row['email'] ?>">
+        <input type="hidden" name="name" value="<?php echo $row['name'] ?>">
 
         </form>
         

@@ -116,6 +116,7 @@ require '../server.php';
               <li class="setting "><a href="resubmit_hostel.php" class="setting__link"><ion-icon name="refresh-circle" class="setting__icon"></ion-icon>Resubmit Hostel</a></li>
               <li class="setting "><a href="submit_hostel.php" class="setting__link"><ion-icon name="cloud-upload" class="setting__icon"></ion-icon>Add new Hostel</a></li>
               <li class="setting"><a href="viewContact.php" class="setting__link"><ion-icon name="eye" class="setting__icon"></ion-icon>View Contacts</a></li>
+              <li class="setting"><a href="viewreport.php" class="setting__link"><ion-icon name="eye" class="setting__icon"></ion-icon>View Reports</a></li>
     
             </ul><!-- settings -->
           </div><!-- .settings-block -->
