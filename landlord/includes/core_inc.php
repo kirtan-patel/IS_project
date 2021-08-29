@@ -77,6 +77,7 @@ function upload_hos(){
     $hos_rul=$_POST['rules'];
     $bed_no=$_POST['bed_no'];
     $share_no=$_POST['share_no'];
+    $hos_transport=$_POST['transport'];
 
     
 
@@ -95,7 +96,7 @@ if (!empty($_FILES["feat_image"]["name"])) {
 
           
 
-          $quer="INSERT INTO `hos_details`(`agent_id`, `hos_name`, `hos_type`,`share_no`,`bed_no`, `price`, `description`, `ft_img`, `location`, `friendly_add`, `services`, `rules`) VALUES ('$user_id','$hos_title','$hos_type','$share_no','$bed_no','$hos_price','$hos_des','$targetPathFeatImg','$hos_location','$hos_fri_add','$hos_services','$hos_rul')";
+          $quer="INSERT INTO `hos_details`(`agent_id`, `hos_name`, `hos_type`,`share_no`,`bed_no`, `price`, `description`, `ft_img`, `location`, `friendly_add`, `transport`,`services`, `rules`) VALUES ('$user_id','$hos_title','$hos_type','$share_no','$bed_no','$hos_price','$hos_des','$targetPathFeatImg','$hos_location','$hos_fri_add','$hos_transport','$hos_services','$hos_rul')";
 
             if ($query_run = mysqli_query($con, $quer)) {
                 
@@ -285,7 +286,8 @@ if (!empty($_FILES["feat_image"]["name"])) {
         $hos_rule=$_POST['rules'];
         $hos_share_no=$_POST['share_no'];
         $hos_bed_no=$_POST['bed_no'];
-        $query_update="UPDATE `hos_details` set `hos_name`='$hos_name',`hos_type`='$hos_type',`share_no`='$hos_share_no',`bed_no`='$hos_bed_no',`price`='$hos_price',`description`='$hos_des',`location`='$hos_loc',`friendly_add`='$hos_add',`services`='$hos_services',`rules`='$hos_rule' where `ID`='$hosid'";
+        $hos_transport=$_POST['transport'];
+        $query_update="UPDATE `hos_details` set `hos_name`='$hos_name',`hos_type`='$hos_type',`share_no`='$hos_share_no',`bed_no`='$hos_bed_no',`price`='$hos_price',`description`='$hos_des',`location`='$hos_loc',`friendly_add`='$hos_add',`transport`='$hos_transport',`services`='$hos_services',`rules`='$hos_rule' where `ID`='$hosid'";
         $query3=mysqli_query($con,$query_update);
         if ($query3) {
             echo '<script>alert("Hostel has been updated!")

@@ -235,6 +235,13 @@ require '../server.php';
                             <label for="property-address" class="submit-property__label">Friendly Address</label>
                             <input required type="text" class="submit-property__field"  id="property-address" name="address" placeholder="Opposite..../next to...." required>
                         </div><!-- .submit-property__group -->
+
+                        <div class="submit-property__group">
+                            <label for="property-address" class="submit-property__label">Do you provide transport?</label>
+                            <textarea required cols="10" rows="10" name="transport" class="submit-property__field" placeholder="Do you provide transport for the students who wish to stay at your hostel but the location is far from thier college/school/university" style="border-color:#1fc341; border-width:1px;"></textarea>
+                           
+                        </div><!-- .submit-property__group -->
+
                     </div><!-- .submit-property__block -->
 
                     <div class="submit-property__block">
