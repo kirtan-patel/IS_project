@@ -259,8 +259,10 @@ $hosid = $_GET['hosid'];
                                   <section class="widget" id="contact_agent">
                                         <form method = "POST" action="includes/contact_form.php?prpID=<?php echo $hosid ?>" class="contact-form contact-form--white" id="contact_form">
                                             <div style="padding:10px" class="contact-form__body">
+                                            <input type="hidden" name="student_id" value="<?php echo $_SESSION['id']; ?>">
                                             <input type="hidden" name="hostel_id" value="<?php echo $hosid; ?>">
                                             <input type="hidden" name="id_for_agent" value="<?php echo $row['agent_id'] ?>">
+                                            <input type="hidden" name="hostel_name" value="<?php echo $row['hos_name']; ?>">
                                                 <h3 style="text-align:center; padding:10px"> Contact Form </h3><br>
                                                 <input type="text"  class="contact-form__field" placeholder="Name" name="name" required>                                           
                                                 <input type="email" class="contact-form__field" placeholder="Email" name="Email" required>
