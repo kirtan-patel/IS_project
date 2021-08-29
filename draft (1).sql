@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2021 at 05:37 PM
+-- Generation Time: Aug 29, 2021 at 10:57 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -48,7 +48,8 @@ INSERT INTO `contact` (`ID`, `agent_id`, `hos_id`, `name`, `email`, `phone_no`, 
 (1, 3, 2, 'Kirtankumar Kamleshkumar Patel', 'kirtan09322@gmail.com', '0755995103', 'Nice place to stay, can i have a room?', '2021-08-27', '2021-08-28 13:43:03', 'checked'),
 (2, 3, 2, 'Aryan', 'kirtan09322@gmail.com', '0755995103', 'qwerty', '2021-08-27', '2021-08-28 13:51:18', 'checked'),
 (3, 2, 1, 'Kirtankumar Kamleshkumar Patel', 'kirtan09322@gmail.com', '0755995103', 'qwerty', '2021-08-27', '2021-08-28 14:53:48', 'checked'),
-(4, 2, 3, 'Aryan', 'kirtan09322@gmail.com', '0755995103', 'asdfg', '2021-08-31', '2021-08-28 14:54:42', 'checked');
+(4, 2, 3, 'Aryan', 'kirtan09322@gmail.com', '0755995103', 'asdfg', '2021-08-31', '2021-08-28 14:54:42', 'checked'),
+(5, 3, 4, 'Aryan', 'kirtan09322@gmail.com', '0755995103', 'qwertyuiop', '2021-08-30', '2021-08-28 16:01:53', 'checked');
 
 -- --------------------------------------------------------
 
@@ -127,6 +128,7 @@ CREATE TABLE `hos_details` (
   `ft_img` varchar(255) NOT NULL,
   `location` varchar(255) NOT NULL,
   `friendly_add` varchar(255) NOT NULL,
+  `transport` varchar(255) DEFAULT NULL,
   `services` varchar(50) NOT NULL,
   `rules` varchar(50) NOT NULL,
   `uploaded_on` datetime NOT NULL DEFAULT current_timestamp(),
@@ -138,12 +140,12 @@ CREATE TABLE `hos_details` (
 -- Dumping data for table `hos_details`
 --
 
-INSERT INTO `hos_details` (`ID`, `agent_id`, `hos_name`, `hos_type`, `share_no`, `bed_no`, `price`, `description`, `ft_img`, `location`, `friendly_add`, `services`, `rules`, `uploaded_on`, `isActive`, `agent_active`) VALUES
-(1, 2, 'DOPE', 'Private room', 0, 200, '25000', 'qwerty', 'images/uploads/kirtans.jpeg', 'Butere road, milimani', 'uphill', 'internet, food, water', 'None', '2021-08-09 20:50:46', 0, 0),
-(2, 3, 'himanshus', 'Shared room', 3, 200, '25000', 'Good place', 'images/uploads/himanshus.jpeg', 'kisauni road nairobi west', 'next to house', 'All', 'None', '2021-08-11 12:03:30', 0, 0),
-(3, 2, 'QWERTYS', 'Shared room', 4, 200, '25000', 'It is very good', 'images/uploads/QWERTYS.png', 'forest road nairobi', 'next to strathmore ', 'Internet and all', 'No pets', '2021-08-18 20:36:39', 0, 0),
-(4, 3, 'My_newone', 'Shared room', 5, 100, '25000', 'Nice place to stay', 'images/uploads/My_newone.jpeg', 'Butere road, milimani', 'next to west suit', 'All', 'No party!', '2021-08-20 21:31:09', 1, 0),
-(5, 3, 'ikea', 'Shared room', 2, 200, '25000', 'Nice place to stay ', 'images/uploads/ikea.jpeg', 'kodi road nairobi', 'Butere road, milimani', 'All', 'No party', '2021-08-28 12:59:29', 1, 0);
+INSERT INTO `hos_details` (`ID`, `agent_id`, `hos_name`, `hos_type`, `share_no`, `bed_no`, `price`, `description`, `ft_img`, `location`, `friendly_add`, `transport`, `services`, `rules`, `uploaded_on`, `isActive`, `agent_active`) VALUES
+(1, 2, 'DOPE', 'Private room', NULL, 200, '25000', 'qwerty', 'images/uploads/kirtans.jpeg', 'Butere road, milimani', 'uphill', 'Yes we provide transport', 'internet, food, water', 'None', '2021-08-09 20:50:46', 0, 0),
+(2, 3, 'himanshus', 'Shared room', 3, 200, '25000', 'Good place', 'images/uploads/himanshus.jpeg', 'kisauni road nairobi west', 'next to house', 'Do not worry about your transportation, we provide at no extra charge', 'All', 'None', '2021-08-11 12:03:30', 0, 0),
+(3, 2, 'QWERTYS', 'Shared room', 4, 200, '25000', 'It is very good', 'images/uploads/QWERTYS.png', 'forest road nairobi', 'next to strathmore ', 'Yes we provide transport', 'Internet and all', 'No pets', '2021-08-18 20:36:39', 0, 0),
+(4, 3, 'My_newone', 'Shared room', 5, 99, '25000', 'Nice place to stay', 'images/uploads/My_newone.jpeg', 'Butere road, milimani', 'next to west suit', 'We provide transport to students at specific times', 'All', 'No party!', '2021-08-20 21:31:09', 0, 0),
+(5, 3, 'ikea', 'Shared room', 2, 200, '25000', 'Nice place to stay ', 'images/uploads/ikea.jpeg', 'kodi road nairobi', 'Butere road, milimani', 'Yes,  we provide transport at 1000/month', 'All', 'No party', '2021-08-28 12:59:29', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -218,7 +220,7 @@ ALTER TABLE `img_table`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `details`
