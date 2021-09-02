@@ -43,8 +43,8 @@ $hosid = $_GET['hosid'];
   <link href="assets/css/style-responsive.css" rel="stylesheet">
 </head>
 
-<body>
-  <header class="header header--blue" style="background-color: rgb(0, 23, 71);">
+<body style="background-color: #d6e4f0;">
+  <header class="header header--blue" style="background:#db3056;">
     <div class="container">
       <div class="header__main">
         <div class="header__logo">

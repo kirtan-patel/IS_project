@@ -29,7 +29,7 @@ $agend_id=$_SESSION['id_landlord'];
 $pdf = new FPDF(); 
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',12);
-$width_cell=array(20,50,40,40,40,20,20);
+$width_cell=array(5,55,40,45,35);
 
 
  //Background color of header// 

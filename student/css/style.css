@@ -992,7 +992,7 @@ body {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  background-color: antiquewhite;
+  background-color: #d2f6fc;
 
 }
 h1,
@@ -1234,7 +1234,7 @@ button .btn-success{
   background-color: green;
 }
 .header--blue {
-  background-color: darkblue;
+  background-color: #6730ec;
 }
 .header--top {
   position: absolute;
