@@ -34,6 +34,8 @@ $width_cell=array(20,50,40,40,40,20,20);
 
  //Background color of header// 
 $pdf->SetFillColor(193,229,252);
+$pdf->SetXY(10,5);
+$pdf->Cell(200,15,"Report for people who said hostel is too expensive",3,3,'C');
 
 // Header starts//
  //First header column // 

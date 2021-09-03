@@ -34,6 +34,8 @@ $width_cell=array(5,55,40,45,35);
 
  //Background color of header// 
 $pdf->SetFillColor(193,229,252);
+$pdf->SetXY(10,5);
+$pdf->Cell(200,15,"Report for total booked rooms",3,3,'C');
 
 // Header starts//
  //First header column // 
