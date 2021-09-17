@@ -8,4 +8,3 @@ if (isset($_POST['logout'])) {
     unset($_SESSION['id_landlord']);
     header("location:../login.php");
 }
-?>

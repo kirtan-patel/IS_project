@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_admin'])) {
   header('location:../login.php');
 }
 if (isset($_POST['logout'])) {
-  
+
   unset($_SESSION['id_admin']);
   header("location:../login.php");
 }
@@ -50,8 +50,8 @@ $hosid = $_GET['hosid'];
         <div class="header__logo">
           <a href="#">
             <h1 style="color: whitesmoke;">Admin Panel</h1>
-            
-            
+
+
           </a>
         </div><!-- .header__logo -->
 
@@ -66,26 +66,32 @@ $hosid = $_GET['hosid'];
             <li class="header__nav-item">
               <a href="dashboard.php" class="header__nav-link">Home</a>
             </li>
-            
-  
+
+
             <li class="header__nav-item">
-              <a href="#" class="header__nav-link">Hi, <?php echo $_SESSION['username_admin'];?></a>
-            <ul>
-              <li class="setting"><a href="dashboard.php" class="setting__link"><ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile</a></li>
-              <li class="setting"><a href="my_hostel.php" class="setting__link"><ion-icon name="home" class="setting__icon"></ion-icon>My Hostels</a></li>
-              <li class="setting"><a href="change-password.php" class="setting__link"><ion-icon name="lock-open" class="setting__icon"></ion-icon>Change Password</a></li>
-              <form action="dashboard.php" method="post">
-              <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue" ></li>
-              </form>
-          </ul>
-          </li>
+              <a href="#" class="header__nav-link">Hi, <?php echo $_SESSION['username_admin']; ?></a>
+              <ul>
+                <li class="setting"><a href="dashboard.php" class="setting__link">
+                    <ion-icon name="people-circle" class="setting__icon"></ion-icon>My Profile
+                  </a></li>
+                <li class="setting"><a href="my_hostel.php" class="setting__link">
+                    <ion-icon name="home" class="setting__icon"></ion-icon>My Hostels
+                  </a></li>
+                <li class="setting"><a href="change-password.php" class="setting__link">
+                    <ion-icon name="lock-open" class="setting__icon"></ion-icon>Change Password
+                  </a></li>
+                <form action="dashboard.php" method="post">
+                  <li><input type="submit" value="Logout" name="logout" class="logout" style="background-color: red; color:aliceblue"></li>
+                </form>
+              </ul>
+            </li>
           </ul><!-- .header__nav -->
         </div><!-- .header__menu -->
 
-        
-     </div><!-- .header__main -->
-   </div><!-- .container -->
- </header><!-- .header -->
+
+      </div><!-- .header__main -->
+    </div><!-- .container -->
+  </header><!-- .header -->
   <!-- <?php
         echo $_SESSION['id_admin'];
         ?> -->
@@ -133,30 +139,31 @@ $hosid = $_GET['hosid'];
                 </div><!-- .container -->
               </div><!-- .property__header -->
 
-              <div class="property__feature" > <!-- display image part -->
+              <div class="property__feature">
+                <!-- display image part -->
 
-                <?php 
-                  $query2="SELECT * from `img_table` where `hos_id`='$hosid'";
-                  $query2_run=mysqli_query($con,$query2);
-                  
-                  while ($res=mysqli_fetch_array($query2_run)) {
-                    ?>
-                    
-                      <img src="<?php echo "../landlord/" .$res['more_img'] ?>" alt="<?php echo $res['hos_name']."".$res['more_img'] ?>" style="margin: 10px;" class="img_all">
-                    
+                <?php
+                $query2 = "SELECT * from `img_table` where `hos_id`='$hosid'";
+                $query2_run = mysqli_query($con, $query2);
+
+                while ($res = mysqli_fetch_array($query2_run)) {
+                ?>
+
+                  <img src="<?php echo "../landlord/" . $res['more_img'] ?>" alt="<?php echo $res['hos_name'] . "" . $res['more_img'] ?>" style="margin: 10px;" class="img_all">
+
 
                 <?php  }
                 ?>
 
                 <!-- get details from hos_details -->
-                <?php 
-                  $id=$_GET['hosid'];
-                  $query3="SELECT * from `hos_details` where `ID`='$id'";
-                  $query3_run=mysqli_query($con,$query3);
-                  $ress=mysqli_fetch_assoc($query3_run);
-                  $agent_id=$ress['agent_id'];
-                  $address = $ress['location'];
-                  $address = str_replace(" ", "+", $address);
+                <?php
+                $id = $_GET['hosid'];
+                $query3 = "SELECT * from `hos_details` where `ID`='$id'";
+                $query3_run = mysqli_query($con, $query3);
+                $ress = mysqli_fetch_assoc($query3_run);
+                $agent_id = $ress['agent_id'];
+                $address = $ress['location'];
+                $address = str_replace(" ", "+", $address);
                 ?>
 
               </div>
@@ -168,52 +175,54 @@ $hosid = $_GET['hosid'];
               </div><!-- .property__feature -->
 
               <div class="property__feature">
-                
-                <h3 class="property__feature-businessName property__feature-businessName--b-spacing">Property Details</h3>
-                  <ul class="property__details-list">
-                    <li class="property__details-item"><span class="property__details-item--cat">Location:</span><?php echo $ress['location']; ?></li>
-                    <li class="property__details-item"><span class="property__details-item--cat">friendly address:</span> <?php echo $ress['friendly_add']; ?><li>
-                    <li class="property__details-item"><span class="property__details-item--cat">Services: </span><?php  echo $ress['services']; ?>
-                    
-                   
-                   </ul><!-- .property__details-list -->
-                   <iframe width="100%" height="250" src="https://maps.google.com/maps?q=<?php echo $address; ?>&output=embed"></iframe>     
-                </div><!-- .property__feature -->
 
-                <div class="property__feature">
-                    <h3 class="property__feature-businessName property__feature-businessName--b-spacing">Rules</h3>
-                    <ul class="property__features-list">
-                         <?php
-                        $rules =  $ress['rules'];
-                          ?>
-                          <li class="property__details-item
+                <h3 class="property__feature-businessName property__feature-businessName--b-spacing">Property Details</h3>
+                <ul class="property__details-list">
+                  <li class="property__details-item"><span class="property__details-item--cat">Location:</span><?php echo $ress['location']; ?></li>
+                  <li class="property__details-item"><span class="property__details-item--cat">friendly address:</span> <?php echo $ress['friendly_add']; ?>
+                  <li>
+                  <li class="property__details-item"><span class="property__details-item--cat">Services: </span><?php echo $ress['services']; ?>
+
+
+                </ul><!-- .property__details-list -->
+                <iframe width="100%" height="250" src="https://maps.google.com/maps?q=<?php echo $address; ?>&output=embed"></iframe>
+              </div><!-- .property__feature -->
+
+              <div class="property__feature">
+                <h3 class="property__feature-businessName property__feature-businessName--b-spacing">Rules</h3>
+                <ul class="property__features-list">
+                  <?php
+                  $rules =  $ress['rules'];
+                  ?>
+                  <li class="property__details-item
                           "><?php echo $rules; ?></li>
 
-                     </ul><!-- .property__features-list -->
-                </div><!-- .property__feature -->
+                </ul><!-- .property__features-list -->
+              </div><!-- .property__feature -->
 
 
-                <div class="property__feature">
+              <div class="property__feature">
 
-                <?php 
-                    
-                    $query4="SELECT * from `details` where `ID`='$agent_id'";
-                    $query4_run=mysqli_query($con,$query4);
-                    $result=mysqli_fetch_assoc($query4_run);
+                <?php
+
+                $query4 = "SELECT * from `details` where `ID`='$agent_id'";
+                $query4_run = mysqli_query($con, $query4);
+                $result = mysqli_fetch_assoc($query4_run);
                 ?>
 
                 <h3 class="property__feature-businessName property__feature-businessName--b-spacing">Hostel Owner details</h3>
-                  <ul class="property__details-list">
-                    <li class="property__details-item"><span class="property__details-item--cat">Name:</span><?php echo $result['FirstName']." ".$result['LastName'] ?></li>
-                    <li class="property__details-item"><span class="property__details-item--cat">about owner:</span> <?php echo $result['about_me']; ?><li>
-                    <li class="property__details-item"><span class="property__details-item--cat">Email: </span><a href="mailto:<?php echo $result['Email']; ?>"><?php  echo $result['Email']; ?></a>
-                    <li class="property__details-item"><span class="property__details-item--cat">Phone number: </span><a href="tel:<?php echo $result['phone_no']; ?>"><?php  echo $result['phone_no']; ?></a>
-                                            
-                     </ul><!-- .property__details-list -->
-                   <a href="includes/approve_hostel.php?status=<?php echo$row['ID'] ?>" class="btn btn-success btn-sm" >Approve hostel</a>
+                <ul class="property__details-list">
+                  <li class="property__details-item"><span class="property__details-item--cat">Name:</span><?php echo $result['FirstName'] . " " . $result['LastName'] ?></li>
+                  <li class="property__details-item"><span class="property__details-item--cat">about owner:</span> <?php echo $result['about_me']; ?>
+                  <li>
+                  <li class="property__details-item"><span class="property__details-item--cat">Email: </span><a href="mailto:<?php echo $result['Email']; ?>"><?php echo $result['Email']; ?></a>
+                  <li class="property__details-item"><span class="property__details-item--cat">Phone number: </span><a href="tel:<?php echo $result['phone_no']; ?>"><?php echo $result['phone_no']; ?></a>
 
-                </div><!-- .property__feature -->
-                
+                </ul><!-- .property__details-list -->
+                <a href="includes/approve_hostel.php?status=<?php echo $row['ID'] ?>" class="btn btn-success btn-sm">Approve hostel</a>
+
+              </div><!-- .property__feature -->
+
 
 
 
@@ -235,13 +244,13 @@ $hosid = $_GET['hosid'];
   </section>
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-<script src="js/jquery-1.12.4.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDyCxHyc8z9gMA5IlipXpt0c33Ajzqix4"></script>
-<script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js"></script>
-<script src="js/custom.js"></script>
+  <script src="js/jquery-1.12.4.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDyCxHyc8z9gMA5IlipXpt0c33Ajzqix4"></script>
+  <script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js"></script>
+  <script src="js/custom.js"></script>
 </body>
 
 </html>

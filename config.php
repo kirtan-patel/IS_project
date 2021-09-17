@@ -11,5 +11,3 @@
     if(mysqli_connect_error()){
         die($connect_error);
     }
-
-?>
